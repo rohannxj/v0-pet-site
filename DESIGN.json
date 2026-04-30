@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-04-30T00:00:00Z",
+  "title": "Design System: Pet Vital",
+  "extensions": {
+    "colorMeta": {
+      "composed-evergreen": {
+        "role": "primary",
+        "displayName": "Composed Evergreen",
+        "canonical": "oklch(0.55 0.15 170)",
+        "tonalRamp": [
+          "oklch(0.15 0.05 170)",
+          "oklch(0.22 0.07 170)",
+          "oklch(0.32 0.10 170)",
+          "oklch(0.42 0.13 170)",
+          "oklch(0.55 0.15 170)",
+          "oklch(0.65 0.12 170)",
+          "oklch(0.77 0.08 170)",
+          "oklch(0.92 0.03 170)"
+        ]
+      },
+      "deep-evergreen": {
+        "role": "primary-dark",
+        "displayName": "Deep Evergreen",
+        "canonical": "oklch(0.25 0.10 170)",
+        "tonalRamp": [
+          "oklch(0.10 0.04 170)",
+          "oklch(0.18 0.07 170)",
+          "oklch(0.25 0.10 170)",
+          "oklch(0.33 0.11 170)",
+          "oklch(0.42 0.13 170)",
+          "oklch(0.52 0.14 170)",
+          "oklch(0.65 0.11 170)",
+          "oklch(0.83 0.05 170)"
+        ]
+      },
+      "footer-midnight": {
+        "role": "surface-dark",
+        "displayName": "Footer Midnight",
+        "canonical": "oklch(0.22 0.06 170)",
+        "tonalRamp": [
+          "oklch(0.10 0.03 170)",
+          "oklch(0.15 0.04 170)",
+          "oklch(0.22 0.06 170)",
+          "oklch(0.30 0.08 170)",
+          "oklch(0.40 0.10 170)",
+          "oklch(0.52 0.12 170)",
+          "oklch(0.67 0.09 170)",
+          "oklch(0.85 0.03 170)"
+        ]
+      },
+      "surface-white": {
+        "role": "surface",
+        "displayName": "Surface White",
+        "canonical": "oklch(1 0 0)",
+        "tonalRamp": [
+          "oklch(0.20 0 0)",
+          "oklch(0.35 0 0)",
+          "oklch(0.50 0 0)",
+          "oklch(0.65 0 0)",
+          "oklch(0.78 0 0)",
+          "oklch(0.88 0 0)",
+          "oklch(0.95 0 0)",
+          "oklch(1 0 0)"
+        ]
+      },
+      "surface-tinted": {
+        "role": "surface-secondary",
+        "displayName": "Surface Tinted",
+        "canonical": "oklch(0.97 0.01 170)",
+        "tonalRamp": [
+          "oklch(0.30 0.01 170)",
+          "oklch(0.45 0.01 170)",
+          "oklch(0.60 0.01 170)",
+          "oklch(0.72 0.01 170)",
+          "oklch(0.82 0.01 170)",
+          "oklch(0.90 0.01 170)",
+          "oklch(0.94 0.01 170)",
+          "oklch(0.97 0.01 170)"
+        ]
+      },
+      "foreground-primary": {
+        "role": "on-surface",
+        "displayName": "Foreground Primary",
+        "canonical": "oklch(0.25 0.01 240)",
+        "tonalRamp": [
+          "oklch(0.12 0.01 240)",
+          "oklch(0.20 0.01 240)",
+          "oklch(0.30 0.01 240)",
+          "oklch(0.42 0.01 240)",
+          "oklch(0.55 0.01 240)",
+          "oklch(0.68 0.01 240)",
+          "oklch(0.80 0.01 240)",
+          "oklch(0.93 0.005 240)"
+        ]
+      },
+      "foreground-muted": {
+        "role": "on-surface-muted",
+        "displayName": "Foreground Muted",
+        "canonical": "oklch(0.50 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.25 0 0)",
+          "oklch(0.35 0 0)",
+          "oklch(0.45 0 0)",
+          "oklch(0.55 0 0)",
+          "oklch(0.65 0 0)",
+          "oklch(0.78 0 0)",
+          "oklch(0.92 0 0)"
+        ]
+      },
+      "alert-red": {
+        "role": "error",
+        "displayName": "Alert Red",
+        "canonical": "oklch(0.577 0.245 27.325)",
+        "tonalRamp": [
+          "oklch(0.20 0.10 27)",
+          "oklch(0.30 0.16 27)",
+          "oklch(0.40 0.20 27)",
+          "oklch(0.50 0.23 27)",
+          "oklch(0.577 0.245 27)",
+          "oklch(0.67 0.20 27)",
+          "oklch(0.78 0.14 27)",
+          "oklch(0.92 0.05 27)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headlines only. One per page maximum." },
+      "headline": { "displayName": "Headline", "purpose": "Section headings, page titles, modal headers." },
+      "title": { "displayName": "Title", "purpose": "Card headings, nav labels, in-section subheadings." },
+      "body": { "displayName": "Body", "purpose": "All prose. 68ch line length cap." },
+      "label": { "displayName": "Label", "purpose": "Brand names, metadata, form labels, badge text." }
+    },
+    "shadows": [
+      {
+        "name": "ambient-low",
+        "value": "0 1px 3px oklch(0.25 0.10 170 / 0.08), 0 1px 2px oklch(0.25 0.10 170 / 0.06)",
+        "purpose": "Cards and containers at rest."
+      },
+      {
+        "name": "ambient-lift",
+        "value": "0 4px 12px oklch(0.25 0.10 170 / 0.12), 0 2px 4px oklch(0.25 0.10 170 / 0.08)",
+        "purpose": "Cards on hover, open dropdowns, focus-elevated inputs."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.25, 0, 0, 1)",
+        "purpose": "Default easing for all state transitions. Ease-out-quart: fast start, soft landing."
+      },
+      {
+        "name": "duration-fast",
+        "value": "150ms",
+        "purpose": "Colour/opacity state changes (hover fills, focus rings)."
+      },
+      {
+        "name": "duration-default",
+        "value": "200ms",
+        "purpose": "Shadow lift, border transitions."
+      },
+      {
+        "name": "duration-slow",
+        "value": "500ms",
+        "purpose": "Image scale on product card hover."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CTA. Composed Evergreen fill, confident and direct.",
+      "html": "<button class=\"ds-btn-primary\">Shop Now</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: oklch(0.55 0.15 170); color: oklch(1 0 0); font-family: Geist, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; line-height: 1; padding: 10px 24px; border: none; border-radius: 8px; cursor: pointer; transition: background 200ms cubic-bezier(0.25, 0, 0, 1), box-shadow 200ms cubic-bezier(0.25, 0, 0, 1); } .ds-btn-primary:hover { background: oklch(0.42 0.13 170); box-shadow: 0 4px 12px oklch(0.25 0.10 170 / 0.20); } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 3px oklch(0.55 0.15 170 / 0.50); } .ds-btn-primary:disabled { opacity: 0.5; pointer-events: none; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action. Fills with Composed Evergreen on hover.",
+      "html": "<button class=\"ds-btn-outline\">Add to Cart <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='8' cy='21' r='1'/><circle cx='19' cy='21' r='1'/><path d='M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12'/></svg></button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: oklch(1 0 0); color: oklch(0.25 0.01 240); font-family: Geist, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; line-height: 1; padding: 10px 24px; border: 1px solid oklch(0.90 0 0); border-radius: 8px; cursor: pointer; transition: background 150ms cubic-bezier(0.25, 0, 0, 1), color 150ms cubic-bezier(0.25, 0, 0, 1), border-color 150ms cubic-bezier(0.25, 0, 0, 1); } .ds-btn-outline:hover { background: oklch(0.55 0.15 170); color: oklch(1 0 0); border-color: oklch(0.55 0.15 170); } .ds-btn-outline:focus-visible { outline: none; box-shadow: 0 0 0 3px oklch(0.55 0.15 170 / 0.50); }"
+    },
+    {
+      "name": "Product Card",
+      "kind": "card",
+      "refersTo": "card-product",
+      "description": "Core commerce unit. Image-led, price gated by auth state.",
+      "html": "<div class=\"ds-product-card\"><div class=\"ds-product-card__image\"><img src=\"https://images.unsplash.com/photo-1589924691995-400dc9eee119?w=400&auto=format&fit=crop&q=80\" alt=\"Dog treat\" /><span class=\"ds-badge ds-badge--new\">New</span></div><div class=\"ds-product-card__body\"><p class=\"ds-product-card__brand\">Royal Canin</p><h3 class=\"ds-product-card__name\">Adult Medium Breed Dry Dog Food 15kg</h3><div class=\"ds-product-card__footer\"><span class=\"ds-product-card__price\">£42.99</span><button class=\"ds-btn-cart\"><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='8' cy='21' r='1'/><circle cx='19' cy='21' r='1'/><path d='M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12'/></svg></button></div></div></div>",
+      "css": ".ds-product-card { background: oklch(1 0 0); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px oklch(0.25 0.10 170 / 0.08), 0 1px 2px oklch(0.25 0.10 170 / 0.06); transition: box-shadow 200ms cubic-bezier(0.25,0,0,1), transform 200ms cubic-bezier(0.25,0,0,1); cursor: pointer; } .ds-product-card:hover { box-shadow: 0 4px 12px oklch(0.25 0.10 170 / 0.12), 0 2px 4px oklch(0.25 0.10 170 / 0.08); transform: translateY(-2px); } .ds-product-card__image { position: relative; aspect-ratio: 1; overflow: hidden; background: oklch(1 0 0); } .ds-product-card__image img { width: 100%; height: 100%; object-fit: contain; padding: 8px; transition: transform 500ms cubic-bezier(0.25,0,0,1); } .ds-product-card:hover .ds-product-card__image img { transform: scale(1.05); } .ds-product-card__body { padding: 16px; } .ds-product-card__brand { font-family: Geist, system-ui, sans-serif; font-size: 0.75rem; font-weight: 500; color: oklch(0.50 0 0); margin: 0 0 4px; letter-spacing: 0.02em; } .ds-product-card__name { font-family: Geist, system-ui, sans-serif; font-size: 0.9375rem; font-weight: 500; color: oklch(0.25 0.01 240); line-height: 1.3; margin: 0 0 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: color 150ms; } .ds-product-card:hover .ds-product-card__name { color: oklch(0.55 0.15 170); } .ds-product-card__footer { display: flex; align-items: center; justify-content: space-between; } .ds-product-card__price { font-family: Geist, system-ui, sans-serif; font-size: 1rem; font-weight: 700; color: oklch(0.55 0.15 170); } .ds-btn-cart { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: oklch(1 0 0); color: oklch(0.25 0.01 240); border: 1px solid oklch(0.90 0 0); border-radius: 8px; cursor: pointer; transition: background 150ms, color 150ms, border-color 150ms; } .ds-btn-cart:hover { background: oklch(0.55 0.15 170); color: oklch(1 0 0); border-color: oklch(0.55 0.15 170); } .ds-badge { position: absolute; top: 8px; left: 8px; font-family: Geist, system-ui, sans-serif; font-size: 0.6875rem; font-weight: 500; padding: 3px 8px; border-radius: 9999px; letter-spacing: 0.02em; } .ds-badge--new { background: oklch(0.50 0.15 145); color: oklch(1 0 0); } .ds-badge--sale { background: oklch(0.577 0.245 27.325); color: oklch(1 0 0); } .ds-badge--featured { background: oklch(0.55 0.15 170); color: oklch(1 0 0); }"
+    },
+    {
+      "name": "Search Input",
+      "kind": "input",
+      "refersTo": "input-default",
+      "description": "Main site search. Full-width in the header nav.",
+      "html": "<div class=\"ds-search\"><svg class=\"ds-search__icon\" xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'/><path d='m21 21-4.3-4.3'/></svg><input class=\"ds-search__input\" type=\"text\" placeholder=\"Search products, brands...\" /></div>",
+      "css": ".ds-search { position: relative; display: flex; align-items: center; } .ds-search__icon { position: absolute; left: 12px; color: oklch(0.50 0 0); pointer-events: none; flex-shrink: 0; } .ds-search__input { width: 100%; font-family: Geist, system-ui, sans-serif; font-size: 0.875rem; font-weight: 400; color: oklch(0.25 0.01 240); background: oklch(1 0 0); border: 1px solid oklch(0.90 0 0); border-radius: 8px; padding: 10px 14px 10px 38px; transition: border-color 150ms, box-shadow 150ms; outline: none; } .ds-search__input::placeholder { color: oklch(0.65 0 0); } .ds-search__input:focus { border-color: oklch(0.55 0.15 170); border-width: 2px; box-shadow: 0 0 0 3px oklch(0.55 0.15 170 / 0.15); padding-left: 37px; }"
+    },
+    {
+      "name": "Navigation Top Bar",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Utility bar above main nav. Teal background with contact info and account links.",
+      "html": "<div class=\"ds-topbar\"><div class=\"ds-topbar__inner\"><div class=\"ds-topbar__contact\"><a href=\"tel:01902924266\" class=\"ds-topbar__link\"><svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'/></svg>01902 924266</a></div><div class=\"ds-topbar__actions\"><a href=\"/trade-account\" class=\"ds-topbar__link\">Trade Accounts</a><a href=\"/account\" class=\"ds-topbar__link\">My Account</a></div></div></div>",
+      "css": ".ds-topbar { background: oklch(0.55 0.15 170); color: oklch(1 0 0); } .ds-topbar__inner { max-width: 1280px; margin: 0 auto; padding: 8px 16px; display: flex; align-items: center; justify-content: space-between; } .ds-topbar__contact { display: flex; align-items: center; gap: 20px; } .ds-topbar__actions { display: flex; align-items: center; gap: 16px; } .ds-topbar__link { display: flex; align-items: center; gap: 6px; font-family: Geist, system-ui, sans-serif; font-size: 0.75rem; font-weight: 500; color: oklch(1 0 0 / 0.85); text-decoration: none; letter-spacing: 0.01em; transition: color 150ms; } .ds-topbar__link:hover { color: oklch(1 0 0); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Trusted Trade Counter",
+    "overview": "Pet Vital's visual system is built around a single premise: institutional trust, earned by years in the industry. The aesthetic is composed and unhurried. It does not compete for attention through decoration; it earns confidence through consistency, clarity, and quiet authority. Every screen should feel like it was designed by people who have shipped a million orders and don't need to shout about it.\n\nThe system uses depth purposefully. Cards lift slightly on hover. Shadows are ambient, not theatrical. The primary teal carries the brand without overwhelming it — it appears on actions, accents, and the navigation bar, but the majority of surfaces are white and near-neutral. Photography and the animals themselves provide the warmth; the UI stays composed around them.",
+    "keyCharacteristics": [
+      "Teal as the single brand anchor — used on primary actions, the top bar, and footer. Nothing else competes.",
+      "Light, airy surfaces with subtle tinted whites — not clinical pure white.",
+      "Tactile hover states: shadow lift on cards, teal fill on outline buttons, smooth 200ms transitions.",
+      "Geist type throughout — modern geometric sans with professional confidence, legible at all sizes.",
+      "Species-first navigation — the UI organises around animals, not product taxonomy."
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Composed Evergreen is the only colour with strong chroma on any screen. It appears on ≤3 elements per view. Its authority comes from its rarity. Do not introduce a secondary accent.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tint Rule",
+        "body": "No surface is pure white or pure black. Every neutral is tinted toward hue 170 or 240 by chroma 0.005–0.01.",
+        "section": "colors"
+      },
+      {
+        "name": "The Weight Contrast Rule",
+        "body": "Hierarchy is created through weight and size contrast at a minimum 1.25 ratio between adjacent levels. Do not use colour alone to distinguish heading from body.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Surfaces are flat at rest. Shadow is a response to state (hover, elevation, open), not a decorator.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use Composed Evergreen on ≤3 elements per screen.",
+      "Do let photography carry warmth. The UI is composed; the animals are the emotion.",
+      "Do apply Ambient Lift on card hover with a 200ms ease-out transition.",
+      "Do use Geist Mono for all SKUs, order numbers, and product codes.",
+      "Do maintain 44px minimum touch targets on all interactive elements.",
+      "Do show 'Login for pricing' in the product card price slot — never empty space.",
+      "Do tint every neutral toward hue 170/240 at chroma 0.005–0.01."
+    ],
+    "donts": [
+      "Don't introduce a second accent colour.",
+      "Don't use gradients decoratively — only as hero carousel overlays on photography.",
+      "Don't use gradient text (background-clip: text). Never.",
+      "Don't use side-stripe borders (border-left > 1px coloured accent) on cards or alerts.",
+      "Don't make it look like a tech startup: no neon, no glassmorphism.",
+      "Don't make it look like Amazon or eBay: no cluttered grids, no aggressive banner pileup.",
+      "Don't make it look like Pets at Home: no competing colour loudness.",
+      "Don't make it look clinical: no pure white sterile surfaces.",
+      "Don't nest cards.",
+      "Don't use bounce or elastic easing — ease-out-quart only."
+    ]
+  }
+}
