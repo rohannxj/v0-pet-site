@@ -1,7 +1,6 @@
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { AnnouncementBar } from "@/components/announcement-bar"
-import { ShopBySpecies } from "@/components/shop-by-species"
 import { TopPicks } from "@/components/top-picks"
 import { PromoBanner } from "@/components/promo-banner"
 import { PopularCategories } from "@/components/popular-categories"
@@ -16,8 +15,7 @@ export default function Home() {
       <main className="flex-1">
         <HeroSection />
         <AnnouncementBar />
-        <ShopBySpecies />
-        <TopPicks />
+<TopPicks />
         <PromoBanner />
         <PopularCategories />
         <BrandsSection />

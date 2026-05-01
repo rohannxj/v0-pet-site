@@ -7,15 +7,15 @@ import { ProductCard } from "@/components/product-card"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { products } from "@/lib/products"
-import { ChevronRight, Wheat, Pill, Scissors, Home, Heart, Package } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 
 const subcategories = [
-  { name: "Feed", icon: Wheat, count: 134, href: "/shop/equine?category=food", color: "bg-amber-100 text-amber-700" },
-  { name: "Supplements", icon: Pill, count: 89, href: "/shop/equine?category=supplements", color: "bg-blue-100 text-blue-700" },
-  { name: "Grooming", icon: Scissors, count: 76, href: "/shop/equine?category=grooming", color: "bg-pink-100 text-pink-700" },
-  { name: "Stable", icon: Home, count: 54, href: "/shop/equine?category=stable", color: "bg-emerald-100 text-emerald-700" },
-  { name: "Health", icon: Heart, count: 67, href: "/shop/equine?category=health", color: "bg-red-100 text-red-700" },
-  { name: "Tack", icon: Package, count: 98, href: "/shop/equine?category=tack", color: "bg-purple-100 text-purple-700" },
+  { name: "Feed", count: 134, href: "/shop/equine?category=food" },
+  { name: "Supplements", count: 89, href: "/shop/equine?category=supplements" },
+  { name: "Grooming", count: 76, href: "/shop/equine?category=grooming" },
+  { name: "Stable", count: 54, href: "/shop/equine?category=stable" },
+  { name: "Health", count: 67, href: "/shop/equine?category=health" },
+  { name: "Tack", count: 98, href: "/shop/equine?category=tack" },
 ]
 
 const brands = [
@@ -53,43 +53,27 @@ export default function EquinePage() {
               <p className="text-white/90 text-lg max-w-xl mb-6">
                 Premium supplies for horses - grooming, feed, supplements, tack, and accessories from leading brands.
               </p>
-              <div className="flex gap-4">
+              <div className="flex gap-4 mb-6">
                 <Link href="/shop/equine">
                   <Button size="lg" className="bg-white text-[#1a5d5d] hover:bg-white/90">
                     Shop All Equine Products
                   </Button>
                 </Link>
-                <Link href="/shop/equine?category=food">
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                    Horse Feed
-                  </Button>
-                </Link>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {subcategories.map((cat) => (
+                  <Link
+                    key={cat.name}
+                    href={cat.href}
+                    className="px-4 py-2 rounded-lg bg-white/20 hover:bg-white/30 text-white text-sm font-medium transition-colors"
+                  >
+                    {cat.name} <span className="text-white/70 text-xs ml-1">{cat.count}</span>
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
         </div>
-
-        {/* Categories Grid */}
-        <section className="py-12 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <h2 className="text-2xl font-bold mb-8 text-center">Shop by Category</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {subcategories.map((cat) => (
-                <Link key={cat.name} href={cat.href}>
-                  <Card className="hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer h-full">
-                    <CardContent className="p-6 flex flex-col items-center text-center">
-                      <div className={`w-14 h-14 rounded-full ${cat.color} flex items-center justify-center mb-4`}>
-                        <cat.icon className="h-7 w-7" />
-                      </div>
-                      <h3 className="font-semibold mb-1">{cat.name}</h3>
-                      <p className="text-sm text-muted-foreground">{cat.count} products</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* Promo Banners */}
         <section className="py-8">
