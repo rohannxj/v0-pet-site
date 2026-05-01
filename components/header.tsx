@@ -11,9 +11,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useAuth } from "@/contexts/auth-context"
+import { allBrandProducts } from "@/lib/brand-products"
 
 const categories = [
   { name: "Dog", href: "/dog", shopHref: "/shop/dog", subcategories: [
@@ -59,18 +60,56 @@ const categories = [
 
 export function Header() {
   const [searchQuery, setSearchQuery] = useState("")
+  const [suggestions, setSuggestions] = useState<typeof allBrandProducts>([])
+  const [showSuggestions, setShowSuggestions] = useState(false)
+  const searchRef = useRef<HTMLDivElement>(null)
   const { isAuthenticated, user, logout } = useAuth()
   const router = useRouter()
 
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+        setShowSuggestions(false)
+      }
+    }
+    document.addEventListener("mousedown", handler)
+    return () => document.removeEventListener("mousedown", handler)
+  }, [])
+
+  const handleQueryChange = (value: string) => {
+    setSearchQuery(value)
+    if (value.trim().length < 2) {
+      setSuggestions([])
+      setShowSuggestions(false)
+      return
+    }
+    const q = value.toLowerCase()
+    const matches = allBrandProducts
+      .filter(p =>
+        p.name?.toLowerCase().includes(q) ||
+        p.sku?.toLowerCase().includes(q) ||
+        p.brand?.toLowerCase().includes(q)
+      )
+      .slice(0, 8)
+    setSuggestions(matches)
+    setShowSuggestions(matches.length > 0)
+  }
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
+    setShowSuggestions(false)
     if (searchQuery.trim()) {
       router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`)
     }
   }
 
+  const handleSuggestionClick = (productId: number) => {
+    setShowSuggestions(false)
+    router.push(`/product/${productId}`)
+  }
+
   return (
-    <header className="w-full">
+    <header className="w-full" style={{ fontFamily: "var(--font-navbar), system-ui, sans-serif" }}>
       {/* Top bar */}
       <div className="bg-[#1a5d5d] text-white">
         <div className="container mx-auto px-4 py-2 flex items-center justify-between text-sm">
@@ -149,21 +188,55 @@ export function Header() {
 
             {/* Search bar */}
             <form onSubmit={handleSearch} className="flex-1 max-w-2xl hidden md:block">
-              <div className="relative">
+              <div className="relative" ref={searchRef}>
                 <Input
                   type="search"
                   placeholder="Search for products, brands and more..."
                   value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onChange={(e) => handleQueryChange(e.target.value)}
+                  onFocus={() => suggestions.length > 0 && setShowSuggestions(true)}
                   className="w-full pl-4 pr-12 py-3 border-2 border-[#1a5d5d]/20 focus:border-[#1a5d5d] rounded-full"
+                  autoComplete="off"
                 />
                 <Button
                   type="submit"
                   size="icon"
-                  className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-[#1a5d5d] hover:bg-[#154a4a]"
+                  className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-black hover:bg-zinc-800"
                 >
                   <Search className="h-4 w-4" />
                 </Button>
+                {showSuggestions && (
+                  <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-[#1a5d5d]/20 rounded-xl shadow-lg z-50 overflow-hidden">
+                    {suggestions.map((product) => (
+                      <button
+                        key={product.id}
+                        type="button"
+                        onMouseDown={() => handleSuggestionClick(product.id)}
+                        className="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-[#1a5d5d]/05 text-left transition-colors"
+                      >
+                        <div className="w-8 h-8 rounded bg-gray-100 flex-shrink-0 overflow-hidden">
+                          <img src={product.image} alt="" className="w-full h-full object-contain" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium text-foreground truncate">{product.name}</p>
+                          <p className="text-xs text-muted-foreground">
+                            {product.brand}
+                            {product.sku && (
+                              <span onMouseDown={(e) => e.stopPropagation()} className="cursor-default"> · {product.sku}</span>
+                            )}
+                          </p>
+                        </div>
+                      </button>
+                    ))}
+                    <button
+                      type="submit"
+                      onMouseDown={handleSearch as any}
+                      className="w-full px-4 py-2.5 text-sm text-[#1a5d5d] font-medium hover:bg-[#1a5d5d]/05 text-left border-t border-[#1a5d5d]/10 transition-colors"
+                    >
+                      See all results for &ldquo;{searchQuery}&rdquo;
+                    </button>
+                  </div>
+                )}
               </div>
             </form>
 
@@ -206,7 +279,7 @@ export function Header() {
               <Link href="/cart">
                 <Button variant="ghost" size="icon" className="relative">
                   <ShoppingCart className="h-5 w-5" />
-                  <span className="absolute -top-1 -right-1 bg-[#1a5d5d] text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                     0
                   </span>
                 </Button>
@@ -227,7 +300,7 @@ export function Header() {
               <Button
                 type="submit"
                 size="icon"
-                className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-[#1a5d5d] hover:bg-[#154a4a] h-8 w-8"
+                className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-black hover:bg-zinc-800 h-8 w-8"
               >
                 <Search className="h-4 w-4" />
               </Button>
@@ -237,7 +310,7 @@ export function Header() {
       </div>
 
       {/* Navigation */}
-      <nav className="bg-[#1a5d5d] hidden lg:block">
+      <nav className="bg-[#1a5d5d] hidden lg:block border border-black">
         <div className="container mx-auto px-4">
           <ul className="flex items-center justify-center gap-1">
             {categories.map((category) => (

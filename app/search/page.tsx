@@ -6,10 +6,9 @@ import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ProductCard } from "@/components/product-card"
-import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { products } from "@/lib/products"
-import { Search, X } from "lucide-react"
+import { allBrandProducts as products } from "@/lib/brand-products"
+import { Search } from "lucide-react"
 
 function SearchContent() {
   const searchParams = useSearchParams()
@@ -23,41 +22,20 @@ function SearchContent() {
       return
     }
 
+    const q = query.toLowerCase()
     const filtered = products.filter(
       (p) =>
-        p.name.toLowerCase().includes(query.toLowerCase()) ||
-        p.brand.toLowerCase().includes(query.toLowerCase()) ||
-        p.species.toLowerCase().includes(query.toLowerCase()) ||
-        p.category.toLowerCase().includes(query.toLowerCase())
+        p.name?.toLowerCase().includes(q) ||
+        p.brand?.toLowerCase().includes(q) ||
+        p.species?.toLowerCase().includes(q) ||
+        p.category?.toLowerCase().includes(q) ||
+        p.sku?.toLowerCase().includes(q)
     )
     setSearchResults(filtered)
   }, [query])
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Search Input */}
-      <div className="max-w-2xl mx-auto mb-8">
-        <div className="relative">
-          <Input
-            type="search"
-            placeholder="Search for products, brands, categories..."
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="pl-12 pr-12 py-6 text-lg border-2 border-[#1a5d5d]/20 focus:border-[#1a5d5d] rounded-full"
-          />
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-          {query && (
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute right-2 top-1/2 -translate-y-1/2"
-              onClick={() => setQuery("")}
-            >
-              <X className="h-5 w-5" />
-            </Button>
-          )}
-        </div>
-      </div>
 
       {/* Results */}
       {query.trim() === "" ? (

@@ -15,14 +15,27 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { products } from "@/lib/products"
+import { allBrandProducts } from "@/lib/brand-products"
 import { Percent, Clock, Tag } from "lucide-react"
 
 export default function ClearancePage() {
   const [sortBy, setSortBy] = useState("discount")
   const [selectedSpecies, setSelectedSpecies] = useState("all")
 
-  // Get products with original prices (on sale)
-  const clearanceProducts = products.filter((p) => p.originalPrice !== null)
+  // Seed-stable shuffle: pick 40 brand products as clearance with 10-50% discount
+  const brandClearance = allBrandProducts
+    .filter((_, i) => i % 7 === 0)
+    .slice(0, 40)
+    .map((p) => {
+      const discountPct = 10 + ((p.id * 17) % 41)
+      const originalPrice = parseFloat((p.price / (1 - discountPct / 100)).toFixed(2))
+      return { ...p, originalPrice, badge: "Sale" }
+    })
+
+  const clearanceProducts = [
+    ...products.filter((p) => p.originalPrice !== null),
+    ...brandClearance,
+  ]
 
   const filteredProducts = clearanceProducts.filter(
     (p) => selectedSpecies === "all" || p.species === selectedSpecies

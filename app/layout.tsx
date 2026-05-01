@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Alice, Geist, Geist_Mono, Poppins } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { AuthProvider } from '@/contexts/auth-context'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
+const alice = Alice({ subsets: ["latin"], weight: "400", variable: "--font-sans" });
+const geist = Geist({ subsets: ["latin"], variable: "--font-heading" });
+const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-navbar" });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -36,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-background">
+    <html lang="en" className={`bg-background ${alice.variable} ${geist.variable} ${poppins.variable}`}>
       <body className="font-sans antialiased">
         <AuthProvider>
           {children}

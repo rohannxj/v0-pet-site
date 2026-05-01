@@ -30,7 +30,7 @@ export function AnnouncementBar() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
           {features.map((feature) => (
             <div key={feature.title} className="flex items-center gap-3">
-              <div className="flex-shrink-0 w-12 h-12 bg-[#1a5d5d] rounded-full flex items-center justify-center">
+              <div className="flex-shrink-0 w-12 h-12 bg-black rounded-full flex items-center justify-center">
                 <feature.icon className="h-5 w-5 text-white" />
               </div>
               <div>
