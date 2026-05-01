@@ -2,6 +2,7 @@ import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { AnnouncementBar } from "@/components/announcement-bar"
 import { TopPicks } from "@/components/top-picks"
+import { DealBanner } from "@/components/deal-banner"
 import { PromoBanner } from "@/components/promo-banner"
 import { PopularCategories } from "@/components/popular-categories"
 import { BrandsSection } from "@/components/brands-section"
@@ -16,6 +17,7 @@ export default function Home() {
         <HeroSection />
         <AnnouncementBar />
 <TopPicks />
+        <DealBanner />
         <PromoBanner />
         <PopularCategories />
         <BrandsSection />
