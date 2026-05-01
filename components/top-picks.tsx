@@ -7,12 +7,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Heart, ShoppingCart, Star, Lock } from "lucide-react"
 import { useAuth } from "@/contexts/auth-context"
-import { products as allProducts } from "@/lib/products"
+import { allBrandProducts } from "@/lib/brand-products"
 
-const products = allProducts.slice(0, 8).map((p) => ({
-  ...p,
-  category: p.species,
-}))
+const products = allBrandProducts
+  .filter((_, i) => i % 31 === 0)
+  .slice(0, 8)
+  .map((p) => ({ ...p, category: p.species }))
 
 const filters = ["All", "Dog", "Cat", "Small Animal", "Bird"]
 

@@ -15,7 +15,7 @@ export function PromoBanner() {
               </h3>
               <p className="text-white/80 mb-4">Premium nutrition at unbeatable prices</p>
               <Button asChild className="bg-white text-[#1a5d5d] hover:bg-white/90">
-                <Link href="/dog/food">Shop Now</Link>
+                <Link href="/shop/dog?category=food">Shop Now</Link>
               </Button>
             </div>
             <div
@@ -37,7 +37,7 @@ export function PromoBanner() {
               </h3>
               <p className="text-white/80 mb-4">Fresh toys, beds and accessories</p>
               <Button asChild className="bg-white text-[#2d6b4f] hover:bg-white/90">
-                <Link href="/cat/new">Discover More</Link>
+                <Link href="/shop/cat">Discover More</Link>
               </Button>
             </div>
             <div

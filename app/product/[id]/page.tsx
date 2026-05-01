@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { getProductById, products } from "@/lib/products"
+import { allBrandProducts } from "@/lib/brand-products"
 import { useAuth } from "@/contexts/auth-context"
 import { ProductCard } from "@/components/product-card"
 import {
@@ -32,7 +33,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   const [selectedImage, setSelectedImage] = useState(0)
   const { isAuthenticated } = useAuth()
 
-  const product = getProductById(parseInt(id))
+  const product = getProductById(parseInt(id)) ?? allBrandProducts.find(p => p.id === parseInt(id))
 
   if (!product) {
     notFound()
