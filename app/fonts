@@ -1,0 +1,150 @@
+                                                                                                                                                                                                                                             
+⏺ Update(app/layout.tsx)                                                                                                          
+  ⎿  Added 1 line, removed 1 line                                                                                                                                                                                                            
+      1  import type { Metadata } from 'next'                                                                                                                                                                                                
+      2 -import { Geist, Geist_Mono } from 'next/font/google'                                                                                                                                                                                
+      2 +import { Alice, Geist_Mono } from 'next/font/google'                                                                                                                                                                                
+      3  import { Analytics } from '@vercel/analytics/next'                                                                                                                                                                                  
+      4  import { AuthProvider } from '@/contexts/auth-context'
+      5  import './globals.css'                                                                                                                                                                                                              
+                                                                                                                                                                                                                                             
+⏺ Update(app/layout.tsx)                                                                                                                                                                                                                   
+  ⎿  Added 1 line, removed 1 line                                                                                                                                                                                                            
+       4  import { AuthProvider } from '@/contexts/auth-context'                                                                                                                                                                             
+       5  import './globals.css'                                                                                                                                                                                                             
+       6                                                                                                                                                                                                                                     
+       7 -const _geist = Geist({ subsets: ["latin"] });                                                                                                                                                                                      
+       7 +const alice = Alice({ subsets: ["latin"], weight: "400", variable: "--font-sans" });                                                                                                                                               
+       8  const _geistMono = Geist_Mono({ subsets: ["latin"] });                                                                                                                                                                             
+       9                                                                                                                                                                                                                                     
+      10  export const metadata: Metadata = {                                                                                                                                                                                                
+
+⏺ Update(app/layout.tsx)           
+  ⎿  Added 1 line, removed 1 line                                                                                                 
+      36    children: React.ReactNode
+      37  }>) {                                                                                                                                                                                                                              
+      38    return (
+      39 -    <html lang="en" className="bg-background">                                                                                                                                                                                     
+      39 +    <html lang="en" className={`bg-background ${alice.variable}`}>                                                                                                                                                          
+      40        <body className="font-sans antialiased">                                                                                                                                                                                     
+      41          <AuthProvider>
+      42            {children}                                                                                                                                                                                                             
+
+⏺ Done. Alice loads → injects --font-sans CSS var → Tailwind font-sans picks it up site-wide.
+                                                                                                                                  
+✻ Brewed for 18s                   
+                                                                                                                                                                                                                                             
+※ recap: Changing the site font to Alice. Done — layout.tsx updated to load Alice and wire it into the font-sans CSS variable. No further action needed unless you want to test locally. (disable recaps in /config)                         
+                                                                                                                                                                                                                                             
+❯ apply Geist to headers only                                                                                                                                                                                                                
+                                                                                                                                                                                                                                             
+⏺ Update(app/layout.tsx)                                                                                                                                                                                                                     
+  ⎿  Added 1 line, removed 1 line                                                                                                                                                                                                            
+      1  import type { Metadata } from 'next'               
+      2 -import { Alice, Geist_Mono } from 'next/font/google'                                                                                                                                                                                
+      2 +import { Alice, Geist, Geist_Mono } from 'next/font/google'                                                                                                                                                                  
+      3  import { Analytics } from '@vercel/analytics/next'                                                                                                                                                                                  
+      4  import { AuthProvider } from '@/contexts/auth-context'
+      5  import './globals.css'                                                                                                                                                                                                              
+                 
+⏺ Update(app/layout.tsx)                                    
+  ⎿  Added 1 line                                                                                                                 
+       5  import './globals.css'                            
+       6                                                                                                                                                                                                                                     
+       7  const alice = Alice({ subsets: ["latin"], weight: "400", variable: "--font-sans" });
+       8 +const geist = Geist({ subsets: ["latin"], variable: "--font-heading" });                                                                                                                                                           
+       9  const _geistMono = Geist_Mono({ subsets: ["latin"] });
+      10                                                                                                                                                                                                                                     
+      11  export const metadata: Metadata = {
+                                         
+⏺ Update(app/layout.tsx)                                    
+  ⎿  Added 1 line, removed 1 line                                                                                                 
+      37    children: React.ReactNode                       
+      38  }>) {                                                                                                                                                                                                                              
+      39    return (
+      40 -    <html lang="en" className={`bg-background ${alice.variable}`}>                                                                                                                                                                 
+      40 +    <html lang="en" className={`bg-background ${alice.variable} ${geist.variable}`}>                                                                                                                                        
+      41        <body className="font-sans antialiased">                                                                                                                                                                                     
+      42          <AuthProvider>
+      43            {children}           
+
+⏺ Now wire --font-heading to h1–h6 in globals.css:           
+                                                                                                                                  
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)     
+                                                                                                                                                                                                                                             
+⏺ Update(app/globals.css)                                    
+  ⎿  Added 1 line, removed 1 line                                                                                                                                                                                                            
+      75  }                                                                                                                       
+      76                                                                                                                                                                                                                                     
+      77  @theme inline {                                                                                                                                                                                                                    
+      78 -  --font-sans: 'Geist', 'Geist Fallback';                                                                                                                                                                                          
+      78 +  --font-sans: var(--font-sans);                                                                                                                                                                                                   
+      79    --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+      80    --color-background: var(--background);                                                                                                                                                                                           
+      81    --color-foreground: var(--foreground);
+                                         
+⏺ Now add heading rule at bottom of globals.css:                    
+                                                                                                                                  
+  Read 1 file (ctrl+o to expand)                                    
+                                                                                                                                                                                                                                             
+⏺ Update(app/globals.css)
+  ⎿  Added 3 lines                                                                                                                                                                                                                           
+      122    body {                                                                                                               
+      123      @apply bg-background text-foreground;                                                                                                                                                                                         
+      124    }                                                                                                                                                                                                                               
+      125 +  h1, h2, h3, h4, h5, h6 {                                                                                                                                                                                                        
+      126 +    font-family: var(--font-heading), system-ui, sans-serif;                                                                                                                                                                      
+      127 +  }                                                                                                                                                                                                                               
+      128  }                             
+                                         
+⏺ Done. Alice = body. Geist = h1–h6 via --font-heading var.         
+                                                                                                                                  
+✻ Worked for 27s                                                    
+                                                                                                                                                                                                                                             
+※ recap: Changed site font to Alice for body text, Geist for headings. Next step is to test the changes by running the dev server.                                                                                                           
+                                                                                                                                                                                                                                             
+❯ make navbar font poppins                                                                                                                                                                                                                   
+                                                                                                                                                                                                                                             
+⏺ Update(app/layout.tsx)                                                                                                                                                                                                                     
+  ⎿  Added 1 line, removed 1 line                                                                                                                                                                                                            
+      1  import type { Metadata } from 'next'               
+      2 -import { Alice, Geist, Geist_Mono } from 'next/font/google'                                                                                                                                                                  
+      2 +import { Alice, Geist, Geist_Mono, Poppins } from 'next/font/google'                                                                                                                                                                
+      3  import { Analytics } from '@vercel/analytics/next'
+      4  import { AuthProvider } from '@/contexts/auth-context'                                                                                                                                                                              
+      5  import './globals.css'
+                                                                                                                                                                                                                                             
+⏺ Update(app/layout.tsx)      
+  ⎿  Added 1 line                                                   
+       6                                                    
+       7  const alice = Alice({ subsets: ["latin"], weight: "400", variable: "--font-sans" });
+       8  const geist = Geist({ subsets: ["latin"], variable: "--font-heading" });                                                                                                                                                           
+       9 +const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-navbar" });                                                                                                           
+      10  const _geistMono = Geist_Mono({ subsets: ["latin"] });                                                                                                                                                                             
+      11         
+      12  export const metadata: Metadata = {                                                                                                                                                                                                
+                 
+⏺ Update(app/layout.tsx)                 
+  ⎿  Added 1 line, removed 1 line                                   
+      38    children: React.ReactNode                       
+      39  }>) {                                                     
+      40    return (                                                                                                                                                                                                                         
+      41 -    <html lang="en" className={`bg-background ${alice.variable} ${geist.variable}`}>                                                                                                                                        
+      41 +    <html lang="en" className={`bg-background ${alice.variable} ${geist.variable} ${poppins.variable}`}>                                                                                                                           
+      42        <body className="font-sans antialiased">
+      43          <AuthProvider>                                                                                                                                                                                                             
+      44            {children}
+                                         
+⏺ Now apply to navbar in header.tsx — top bar, main nav, category links:
+                                                                    
+⏺ Update(components/header.tsx)                             
+  ⎿  Added 1 line, removed 1 line                                   
+      70    }                                                                                                                                                                                                                                
+      71                                                            
+      72    return (                                                                                                                                                                                                                         
+      73 -    <header className="w-full">                                                                                                                                                                                             
+      73 +    <header className="w-full" style={{ fontFamily: "var(--font-navbar), system-ui, sans-serif" }}>                                                                                                                                
+      74        {/* Top bar */}
+      75        <div className="bg-[#1a5d5d] text-white">                                                                                                                                                                                    
+      76          <div className="container mx-auto px-4 py-2 flex items-center justify-between text-sm">
+                                         
