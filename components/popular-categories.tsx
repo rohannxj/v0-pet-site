@@ -22,7 +22,8 @@ export function PopularCategories() {
             <Link
               key={category.name}
               href={category.href}
-              className="group flex items-center justify-center px-4 py-5 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
+              className="group flex items-center justify-center px-4 py-5 rounded-lg transition-colors"
+              style={{ backgroundColor: "#f5f0e8", border: "1.5px solid #b8b49a", outline: "1px solid #d4cfbe", outlineOffset: "-6px" }}
             >
               <h3 className="font-semibold text-center text-foreground">{category.name}</h3>
             </Link>

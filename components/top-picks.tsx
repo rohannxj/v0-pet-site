@@ -26,11 +26,11 @@ export function TopPicks() {
       : products.filter((p) => p.category === activeFilter.toLowerCase().replace(" ", "-"))
 
   return (
-    <section className="py-12 md:py-16" style={{ backgroundColor: "#f5efe6" }}>
+    <section className="py-12 md:py-16" style={{ background: "linear-gradient(to bottom, #fdf9f4 0%, #e8d9c0 100%)" }}>
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
           <div>
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-1" style={{ color: "#2c2c2c", fontFamily: "serif" }}>Top Picks For You</h2>
+ <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-1" style={{ color: "#2c2c2c", fontFamily: "var(--font-roboto), sans-serif" }}>Top Picks For You</h2>        
             <p className="text-sm" style={{ color: "#7a7a6e" }}>Bestselling products loved by pet owners</p>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -53,7 +53,7 @@ export function TopPicks() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
           {filteredProducts.map((product) => (
-            <Card key={product.id} className="group overflow-hidden transition-shadow hover:shadow-md" style={{ backgroundColor: "#faf7f2", border: "1px solid #d4cfbe", borderRadius: "10px", boxShadow: "0 1px 4px rgba(0,0,0,0.07)" }}>
+            <Card key={product.id} className="group overflow-hidden transition-all duration-200 hover:shadow-2xl hover:border-green-600 hover:border-2 hover:-translate-y-2" style={{ backgroundColor: "#faf7f2", border: "1px solid #d4cfbe", borderRadius: "10px", boxShadow: "0 1px 4px rgba(0,0,0,0.07)" }}>
               <div className="relative aspect-square overflow-hidden" style={{ backgroundColor: "#f0ebe0" }}>
                 <img
                   src={product.image}

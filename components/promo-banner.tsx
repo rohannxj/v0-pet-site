@@ -1,54 +1,98 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { PawPrint } from "lucide-react"
+
+const banners = [
+  {
+    subtitle: "Dog's Essentials",
+    heading: "EXPLORE DOG COLLECTION",
+    href: "/shop/dog",
+    label: "Browse Dogs",
+    image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&auto=format&fit=crop&q=80",
+    alt: "Dog",
+  },
+  {
+    subtitle: "Cats & Kittens",
+    heading: "EXPLORE CAT COLLECTION",
+    href: "/shop/cat",
+    label: "Browse Cats",
+    image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&auto=format&fit=crop&q=80",
+    alt: "Cat",
+  },
+]
 
 export function PromoBanner() {
   return (
-    <section className="py-12 md:py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Left Banner */}
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#1a5d5d] to-[#2a7a7a] p-8 min-h-[250px]">
-            <div className="relative z-10">
-              <p className="text-white/80 text-sm font-medium mb-2">Limited Time Offer</p>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 text-balance">
-                20% Off All Dog Food
-              </h3>
-              <p className="text-white/80 mb-4">Premium nutrition at unbeatable prices</p>
-              <Button asChild className="bg-white text-[#1a5d5d] hover:bg-white/90">
-                <Link href="/shop/dog?category=food">Shop Now</Link>
-              </Button>
-            </div>
-            <div
-              className="absolute right-0 bottom-0 w-1/2 h-full opacity-20"
-              style={{
-                backgroundImage: "url(https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&auto=format&fit=crop&q=80)",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            />
-          </div>
+    <section className="py-12 md:py-16 bg-white relative overflow-visible">
+      {/* Olive branch — top left */}
+      <img
+        src="/olive-branch-lefthandside.png"
+        alt=""
+        aria-hidden
+        className="absolute pointer-events-none select-none"
+        style={{ top: -40, left: -30, width: 280, zIndex: 20 }}
+      />
+      {/* Olive branch — top right */}
+      <img
+        src="/olive-branch-righthandside.png"
+        alt=""
+        aria-hidden
+        className="absolute pointer-events-none select-none"
+        style={{ top: -40, right: -30, width: 280, zIndex: 20 }}
+      />
 
-          {/* Right Banner */}
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#2d6b4f] to-[#40916c] p-8 min-h-[250px]">
-            <div className="relative z-10">
-              <p className="text-white/80 text-sm font-medium mb-2">New Arrivals</p>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 text-balance">
-                Spring Cat Collection
-              </h3>
-              <p className="text-white/80 mb-4">Fresh toys, beds and accessories</p>
-              <Button asChild className="bg-white text-[#2d6b4f] hover:bg-white/90">
-                <Link href="/shop/cat">Discover More</Link>
-              </Button>
-            </div>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          {banners.map((b) => (
             <div
-              className="absolute right-0 bottom-0 w-1/2 h-full opacity-20"
+              key={b.heading}
+              className="relative overflow-hidden rounded-2xl flex items-center min-h-[260px]"
               style={{
-                backgroundImage: "url(https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&auto=format&fit=crop&q=80)",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
+                backgroundColor: "#ffffff",
+                border: "1.5px solid #b8b49a",
+                outline: "1px solid #d4cfbe",
+                outlineOffset: "-6px",
+                boxShadow: "0 2px 16px rgba(0,0,0,0.08)",
               }}
-            />
-          </div>
+            >
+              {/* Text */}
+              <div className="relative z-10 p-8 flex-1 flex flex-col justify-center">
+                <p className="text-sm mb-2" style={{ color: "#8a8a7a" }}>{b.subtitle}</p>
+                <h3
+                  className="text-3xl md:text-4xl font-bold mb-5 leading-tight"
+                  style={{ color: "#6b7355", fontFamily: "sans-serif" }}
+                >
+                  {b.heading}
+                </h3>
+                <div className="mb-6">
+                  <Button
+                    asChild
+                    size="sm"
+                    style={{ backgroundColor: "#6b7355", color: "#fff", border: "none", borderRadius: "6px" }}
+                  >
+                    <Link href={b.href}>{b.label}</Link>
+                  </Button>
+                </div>
+                <div className="flex gap-3">
+                  <span className="flex items-center justify-center w-10 h-10 rounded-full bg-white" style={{ border: "1.5px solid #c0bba8" }}>
+                    <PawPrint className="w-5 h-5" style={{ color: "#6b7355" }} />
+                  </span>
+                  <span className="flex items-center justify-center w-10 h-10 rounded-full bg-white" style={{ border: "1.5px solid #c0bba8" }}>
+                    <PawPrint className="w-5 h-5" style={{ color: "#8a9a6a" }} />
+                  </span>
+                </div>
+              </div>
+
+              {/* Animal image — fills right half */}
+              <div className="absolute right-0 top-0 h-full w-1/2 pointer-events-none">
+                <img
+                  src={b.image}
+                  alt={b.alt}
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
