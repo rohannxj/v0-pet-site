@@ -54,6 +54,17 @@ export function HeroSection() {
   return (
     <section className="relative overflow-hidden">
       <div className="relative h-[400px] md:h-[500px] lg:h-[550px]">
+        {/* Botanical decorations */}
+        <img
+          src="/olive-branch-lefthandside.png"
+          alt=""
+          className="absolute left-0 bottom-0 h-[70%] w-auto object-contain z-20 pointer-events-none select-none -translate-x-1/4"
+        />
+        <img
+          src="/grain-seeds-right.png"
+          alt=""
+          className="absolute right-0 top-[10%] h-[60%] w-auto object-contain z-20 pointer-events-none select-none translate-x-1/4"
+        />
         {slides.map((slide, index) => (
           <div
             key={slide.id}
@@ -66,7 +77,7 @@ export function HeroSection() {
               <div className="grid lg:grid-cols-2 gap-8 items-center w-full">
                 <div className="text-white max-w-xl">
                   <p className="text-xs md:text-sm font-medium mb-4 text-[#E8E4D9]/80 tracking-[0.2em] uppercase">{slide.subtitle}</p>
-                  <h2 className="text-4xl md:text-6xl lg:text-7xl font-light mb-5 text-balance leading-[1.1] tracking-[0.05em] uppercase" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>{slide.title}</h2>
+                  <h2 className="text-4xl md:text-6xl lg:text-7xl font-light mb-5 text-balance leading-[1.1] tracking-[0.05em] uppercase" style={{ fontFamily: "Georgia, 'Times New Roman', serif", color: "#C8B89A" }}>{slide.title}</h2>
                   <p className="text-base md:text-lg mb-10 text-[#E8E4D9]/85 text-pretty leading-relaxed max-w-md">{slide.description}</p>
                   <Button
                     asChild
@@ -78,16 +89,11 @@ export function HeroSection() {
                   </Button>
                 </div>
                 <div className="hidden lg:flex justify-center items-center">
-                  <div className="relative w-[340px] h-[340px]">
-                    {/* Outer frame */}
-                    <div className="absolute inset-0 border border-[#E8E4D9]/30 rounded-[4px] translate-x-4 translate-y-4" />
-                    {/* Mid frame */}
-                    <div className="absolute inset-0 border border-[#E8E4D9]/20 rounded-[4px] translate-x-2 translate-y-2" />
-                    {/* Image */}
+                  <div className="p-4 shadow-2xl" style={{ backgroundColor: "#8A9B8D" }}>
                     <img
                       src={slide.image}
                       alt=""
-                      className="absolute inset-0 w-full h-full object-cover rounded-[4px] shadow-2xl"
+                      className="w-[300px] h-[300px] object-cover block"
                     />
                   </div>
                 </div>
