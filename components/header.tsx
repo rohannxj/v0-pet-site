@@ -111,7 +111,7 @@ export function Header() {
   return (
     <header className="w-full" style={{ fontFamily: "var(--font-navbar), system-ui, sans-serif" }}>
       {/* Top bar */}
-      <div className="bg-[#1a5d5d] text-white">
+      <div className="bg-[#3E4A3D] text-[#E8E4D9]">
         <div className="container mx-auto px-4 py-2 flex items-center justify-between text-sm">
           <div className="hidden md:flex items-center gap-6">
             <a href="tel:+441onal" className="flex items-center gap-2 hover:text-white/80 transition-colors">
@@ -134,7 +134,7 @@ export function Header() {
       </div>
 
       {/* Main header */}
-      <div className="bg-white border-b">
+      <div className="bg-[#FAF9F6] border-b border-[#C4B5A0]/40 shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between gap-4">
             {/* Mobile menu */}
@@ -146,14 +146,14 @@ export function Header() {
               </SheetTrigger>
               <SheetContent side="left" className="w-[300px] p-0">
                 <div className="p-4 border-b">
-                  <Link href="/" className="text-2xl font-bold text-[#1a5d5d]">
+                  <Link href="/" className="text-2xl font-bold text-[#4A5A4D]" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
                     Vital Pet Group
                   </Link>
                 </div>
                 <nav className="p-4">
                   {categories.map((category) => (
                     <div key={category.name} className="py-2 border-b">
-                      <Link href={category.href} className="font-medium text-foreground hover:text-[#1a5d5d]">
+                      <Link href={category.href} className="font-medium text-foreground hover:text-[#6B7F6E]">
                         {category.name}
                       </Link>
                       <div className="pl-4 mt-2 space-y-1">
@@ -161,7 +161,7 @@ export function Header() {
                           <Link
                             key={sub.label}
                             href={`${category.shopHref}?category=${sub.category}`}
-                            className="block text-sm text-muted-foreground hover:text-[#1a5d5d]"
+                            className="block text-sm text-muted-foreground hover:text-[#6B7F6E]"
                           >
                             {sub.label}
                           </Link>
@@ -176,12 +176,12 @@ export function Header() {
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
               <div className="flex items-center gap-2">
-                <div className="w-12 h-12 bg-[#1a5d5d] rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-[#6B7F6E] rounded-full flex items-center justify-center ring-2 ring-[#6B7F6E]/30">
                   <span className="text-white font-bold text-xl">VP</span>
                 </div>
                 <div className="hidden sm:block">
-                  <h1 className="text-xl font-bold text-[#1a5d5d]">Vital Pet Group</h1>
-                  <p className="text-xs text-muted-foreground">UK Pet Products Wholesaler</p>
+                  <h1 className="text-xl font-bold text-[#3E4A3D] tracking-tight" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>Vital Pet Group</h1>
+                  <p className="text-xs text-[#A5A199] tracking-widest uppercase">UK Pet Products Wholesaler</p>
                 </div>
               </div>
             </Link>
@@ -195,24 +195,24 @@ export function Header() {
                   value={searchQuery}
                   onChange={(e) => handleQueryChange(e.target.value)}
                   onFocus={() => suggestions.length > 0 && setShowSuggestions(true)}
-                  className="w-full pl-4 pr-12 py-3 border-2 border-[#1a5d5d]/20 focus:border-[#1a5d5d] rounded-full"
+                  className="w-full pl-4 pr-12 py-3 border border-[#C4B5A0] focus:border-[#6B7F6E] rounded-full bg-[#F5F3ED] focus:bg-white transition-colors text-[#3E4A3D] placeholder:text-[#A5A199]"
                   autoComplete="off"
                 />
                 <Button
                   type="submit"
                   size="icon"
-                  className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-black hover:bg-zinc-800"
+                  className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-[#6B7F6E] hover:bg-[#4A5A4D]"
                 >
                   <Search className="h-4 w-4" />
                 </Button>
                 {showSuggestions && (
-                  <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-[#1a5d5d]/20 rounded-xl shadow-lg z-50 overflow-hidden">
+                  <div className="absolute top-full left-0 right-0 mt-1 bg-[#FAF9F6] border border-[#C4B5A0]/40 rounded-xl shadow-lg z-50 overflow-hidden">
                     {suggestions.map((product) => (
                       <button
                         key={product.id}
                         type="button"
                         onMouseDown={() => handleSuggestionClick(product.id)}
-                        className="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-[#1a5d5d]/05 text-left transition-colors"
+                        className="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-[#6B7F6E]/08 text-left transition-colors"
                       >
                         <div className="w-8 h-8 rounded bg-gray-100 flex-shrink-0 overflow-hidden">
                           <img src={product.image} alt="" className="w-full h-full object-contain" />
@@ -231,7 +231,7 @@ export function Header() {
                     <button
                       type="submit"
                       onMouseDown={handleSearch as any}
-                      className="w-full px-4 py-2.5 text-sm text-[#1a5d5d] font-medium hover:bg-[#1a5d5d]/05 text-left border-t border-[#1a5d5d]/10 transition-colors"
+                      className="w-full px-4 py-2.5 text-sm text-[#6B7F6E] font-medium hover:bg-[#6B7F6E]/08 text-left border-t border-[#C4B5A0]/30 transition-colors"
                     >
                       See all results for &ldquo;{searchQuery}&rdquo;
                     </button>
@@ -245,7 +245,7 @@ export function Header() {
               {isAuthenticated ? (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="icon" className="hidden sm:flex">
+                    <Button variant="ghost" size="icon" className="hidden sm:flex text-[#6B7F6E] hover:text-[#4A5A4D] hover:bg-[#6B7F6E]/10">
                       <User className="h-5 w-5" />
                     </Button>
                   </DropdownMenuTrigger>
@@ -266,20 +266,20 @@ export function Header() {
                 </DropdownMenu>
               ) : (
                 <Link href="/login">
-                  <Button variant="ghost" size="icon" className="hidden sm:flex">
+                  <Button variant="ghost" size="icon" className="hidden sm:flex text-[#6B7F6E] hover:text-[#4A5A4D] hover:bg-[#6B7F6E]/10">
                     <User className="h-5 w-5" />
                   </Button>
                 </Link>
               )}
               <Link href="/wishlist">
-                <Button variant="ghost" size="icon" className="hidden sm:flex">
+                <Button variant="ghost" size="icon" className="hidden sm:flex text-[#6B7F6E] hover:text-[#4A5A4D] hover:bg-[#6B7F6E]/10">
                   <Heart className="h-5 w-5" />
                 </Button>
               </Link>
               <Link href="/cart">
-                <Button variant="ghost" size="icon" className="relative">
+                <Button variant="ghost" size="icon" className="relative text-[#6B7F6E] hover:text-[#4A5A4D] hover:bg-[#6B7F6E]/10">
                   <ShoppingCart className="h-5 w-5" />
-                  <span className="absolute -top-1 -right-1 bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 bg-[#6B7F6E] text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                     0
                   </span>
                 </Button>
@@ -295,12 +295,12 @@ export function Header() {
                 placeholder="Search products..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-4 pr-12 py-2 border-2 border-[#1a5d5d]/20 rounded-full"
+                className="w-full pl-4 pr-12 py-2 border border-[#C4B5A0] rounded-full bg-[#F5F3ED] placeholder:text-[#A5A199]"
               />
               <Button
                 type="submit"
                 size="icon"
-                className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-black hover:bg-zinc-800 h-8 w-8"
+                className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-[#6B7F6E] hover:bg-[#4A5A4D] h-8 w-8"
               >
                 <Search className="h-4 w-4" />
               </Button>
@@ -310,16 +310,16 @@ export function Header() {
       </div>
 
       {/* Navigation */}
-      <nav className="bg-[#1a5d5d] hidden lg:block border border-black">
+      <nav className="bg-[#6B7F6E] hidden lg:block">
         <div className="container mx-auto px-4">
           <ul className="flex items-center justify-center gap-1">
             {categories.map((category) => (
               <li key={category.name}>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <button className="flex items-center gap-1 px-4 py-3 text-white hover:bg-white/10 transition-colors font-medium">
+                    <button className="flex items-center gap-1 px-4 py-3.5 text-[#F5F3ED] hover:text-white hover:border-b-2 hover:border-[#E8E4D9] transition-colors font-medium text-sm tracking-wide">
                       {category.name}
-                      <ChevronDown className="h-4 w-4" />
+                      <ChevronDown className="h-3.5 w-3.5 opacity-60" />
                     </button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="w-48">
@@ -340,12 +340,12 @@ export function Header() {
               </li>
             ))}
             <li>
-              <Link href="/brands" className="flex items-center px-4 py-3 text-white hover:bg-white/10 transition-colors font-medium">
+              <Link href="/brands" className="flex items-center px-4 py-3.5 text-[#F5F3ED] hover:text-white transition-colors font-medium text-sm tracking-wide">
                 Brands
               </Link>
             </li>
             <li>
-              <Link href="/clearance" className="flex items-center px-4 py-3 text-[#ffd700] hover:bg-white/10 transition-colors font-medium">
+              <Link href="/clearance" className="flex items-center px-4 py-3.5 text-[#C4B5A0] hover:text-white transition-colors font-medium text-sm tracking-wide">
                 Clearance
               </Link>
             </li>
