@@ -38,11 +38,11 @@ export function TopPicks() {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className="px-3 py-1 text-xs rounded-full border transition-colors"
+                className="px-4 py-1.5 text-sm font-medium rounded-md border transition-colors"
                 style={
                   activeFilter === filter
-                    ? { backgroundColor: "#6b7355", color: "#fff", borderColor: "#6b7355" }
-                    : { backgroundColor: "transparent", color: "#5a5a4a", borderColor: "#b8b4a0" }
+                    ? { backgroundColor: "#6b7355", color: "#ffffff", borderColor: "#6b7355" }
+                    : { backgroundColor: "#ffffff", color: "#6b7280", borderColor: "#e5e7eb" }
                 }
               >
                 {filter}
@@ -130,7 +130,7 @@ export function TopPicks() {
         </div>
 
         <div className="text-center mt-8">
-          <Button asChild variant="outline" size="lg" style={{ borderColor: "#b8b4a0", color: "#5a5a4a", backgroundColor: "transparent" }}>
+          <Button asChild variant="outline" size="lg" className="rounded-md font-medium transition-colors" style={{ backgroundColor: "#ffffff", color: "#6b7280", borderColor: "#e5e7eb" }}>
             <Link href="/shop">View All Products</Link>
           </Button>
         </div>
