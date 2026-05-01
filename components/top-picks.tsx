@@ -26,32 +26,35 @@ export function TopPicks() {
       : products.filter((p) => p.category === activeFilter.toLowerCase().replace(" ", "-"))
 
   return (
-    <section className="py-12 md:py-16 bg-muted/50">
+    <section className="py-12 md:py-16" style={{ backgroundColor: "#f5efe6" }}>
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Top Picks For You</h2>
-            <p className="text-muted-foreground">Bestselling products loved by pet owners</p>
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-1" style={{ color: "#2c2c2c", fontFamily: "serif" }}>Top Picks For You</h2>
+            <p className="text-sm" style={{ color: "#7a7a6e" }}>Bestselling products loved by pet owners</p>
           </div>
           <div className="flex flex-wrap gap-2">
             {filters.map((filter) => (
-              <Button
+              <button
                 key={filter}
-                variant={activeFilter === filter ? "default" : "outline"}
-                size="sm"
                 onClick={() => setActiveFilter(filter)}
-                className={activeFilter === filter ? "bg-[#1a5d5d] hover:bg-[#154a4a]" : ""}
+                className="px-3 py-1 text-xs rounded-full border transition-colors"
+                style={
+                  activeFilter === filter
+                    ? { backgroundColor: "#6b7355", color: "#fff", borderColor: "#6b7355" }
+                    : { backgroundColor: "transparent", color: "#5a5a4a", borderColor: "#b8b4a0" }
+                }
               >
                 {filter}
-              </Button>
+              </button>
             ))}
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
           {filteredProducts.map((product) => (
-            <Card key={product.id} className="group overflow-hidden border-0 shadow-sm hover:shadow-md transition-shadow">
-              <div className="relative aspect-square overflow-hidden bg-muted">
+            <Card key={product.id} className="group overflow-hidden transition-shadow hover:shadow-md" style={{ backgroundColor: "#faf7f2", border: "1px solid #d4cfbe", borderRadius: "10px", boxShadow: "0 1px 4px rgba(0,0,0,0.07)" }}>
+              <div className="relative aspect-square overflow-hidden" style={{ backgroundColor: "#f0ebe0" }}>
                 <img
                   src={product.image}
                   alt={product.name}
@@ -71,31 +74,32 @@ export function TopPicks() {
                   </Badge>
                 )}
                 <button
-                  className="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-muted"
+                  className="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                  style={{ border: "1px solid #d4cfbe" }}
                   aria-label="Add to wishlist"
                 >
-                  <Heart className="h-4 w-4" />
+                  <Heart className="h-4 w-4" style={{ color: "#7a7a6e" }} />
                 </button>
               </div>
               <CardContent className="p-4">
-                <p className="text-xs text-muted-foreground mb-1">{product.brand}</p>
+                <p className="text-xs mb-1" style={{ color: "#9a9a8a" }}>{product.brand}</p>
                 <Link href={`/product/${product.id}`}>
-                  <h3 className="font-medium text-sm md:text-base line-clamp-2 hover:text-[#1a5d5d] transition-colors">
+                  <h3 className="font-medium text-sm md:text-base line-clamp-2 transition-colors hover:underline" style={{ color: "#2c2c2c" }}>
                     {product.name}
                   </h3>
                 </Link>
                 <div className="flex items-center gap-1 mt-2">
                   <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                  <span className="text-xs font-medium">{product.rating}</span>
-                  <span className="text-xs text-muted-foreground">({product.reviews})</span>
+                  <span className="text-xs font-medium" style={{ color: "#2c2c2c" }}>{product.rating}</span>
+                  <span className="text-xs" style={{ color: "#9a9a8a" }}>({product.reviews})</span>
                 </div>
                 <div className="flex items-center justify-between mt-3">
                   {isAuthenticated ? (
                     <>
                       <div className="flex items-center gap-2">
-                        <span className="font-bold text-[#1a5d5d]">£{product.price.toFixed(2)}</span>
+                        <span className="font-bold" style={{ color: "#4a6741" }}>£{product.price.toFixed(2)}</span>
                         {product.originalPrice && (
-                          <span className="text-sm text-muted-foreground line-through">
+                          <span className="text-sm line-through" style={{ color: "#9a9a8a" }}>
                             £{product.originalPrice.toFixed(2)}
                           </span>
                         )}
@@ -103,7 +107,8 @@ export function TopPicks() {
                       <Button
                         size="icon"
                         variant="outline"
-                        className="h-8 w-8 hover:bg-[#1a5d5d] hover:text-white hover:border-[#1a5d5d]"
+                        className="h-8 w-8"
+                        style={{ borderColor: "#d4cfbe", color: "#5a5a4a" }}
                       >
                         <ShoppingCart className="h-4 w-4" />
                       </Button>
@@ -111,7 +116,8 @@ export function TopPicks() {
                   ) : (
                     <Link
                       href="/login"
-                      className="flex items-center gap-2 text-sm text-muted-foreground hover:text-[#1a5d5d] transition-colors"
+                      className="flex items-center gap-2 text-sm transition-colors"
+                      style={{ color: "#9a9a8a" }}
                     >
                       <Lock className="h-3 w-3" />
                       <span>Login for pricing</span>
@@ -124,7 +130,7 @@ export function TopPicks() {
         </div>
 
         <div className="text-center mt-8">
-          <Button asChild variant="outline" size="lg">
+          <Button asChild variant="outline" size="lg" style={{ borderColor: "#b8b4a0", color: "#5a5a4a", backgroundColor: "transparent" }}>
             <Link href="/shop">View All Products</Link>
           </Button>
         </div>
