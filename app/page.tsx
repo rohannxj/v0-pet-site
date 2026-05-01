@@ -6,7 +6,9 @@ import { DealBanner } from "@/components/deal-banner"
 import { PromoBanner } from "@/components/promo-banner"
 import { PopularCategories } from "@/components/popular-categories"
 import { BrandsSection } from "@/components/brands-section"
+import { WholesalerBanner } from "@/components/wholesaler-banner"
 import { Testimonials } from "@/components/testimonials"
+import { FeaturedArticles } from "@/components/featured-articles"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
@@ -21,7 +23,9 @@ export default function Home() {
         <PromoBanner />
         <PopularCategories />
         <BrandsSection />
+        <WholesalerBanner />
         <Testimonials />
+        <FeaturedArticles />
       </main>
       <Footer />
     </div>

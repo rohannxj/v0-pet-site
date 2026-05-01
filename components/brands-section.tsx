@@ -31,7 +31,7 @@ const brands = [
 
 export function BrandsSection() {
   return (
-    <section className="py-12 md:py-16 bg-muted/50">
+    <section className="py-12 md:py-16" style={{ backgroundColor: '#f7e7d4' }}>
       <div className="container mx-auto px-4 mb-10 text-center">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Shop By Brand</h2>
         <p className="text-muted-foreground">We stock all the leading pet brands</p>
