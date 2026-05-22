@@ -103,7 +103,7 @@ export function HeroSection() {
                     {slide.subtitle}
                   </p>
                   <h1
-                    className="text-4xl md:text-6xl lg:text-7xl font-light mb-5 text-balance leading-[1.1] tracking-[0.05em] uppercase"
+                    className="text-4xl md:text-6xl lg:text-7xl font-bold mb-5 text-balance leading-[1.1] tracking-[0.05em] uppercase"
                     style={{ color: "#C8B89A" }}
                   >
                     {slide.title}

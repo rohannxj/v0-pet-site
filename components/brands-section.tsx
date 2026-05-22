@@ -31,8 +31,9 @@ const brands = [
 
 function BrandCard({ brand }: { brand: (typeof brands)[number] }) {
   return (
-    <div
-      className="group flex flex-col items-center justify-center w-32 h-24 bg-white rounded-xl px-4 py-3 flex-shrink-0"
+    <Link
+      href={`/brands/${brand.slug}`}
+      className="group flex flex-col items-center justify-center flex-shrink-0 w-32 h-24 bg-white rounded-xl px-4 py-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[oklch(0.40_0.12_170)]"
       style={{
         boxShadow: "0 1px 3px oklch(0.25 0.10 170 / 0.08), 0 1px 2px oklch(0.25 0.10 170 / 0.06)",
         transition: "box-shadow 200ms cubic-bezier(0.25, 1, 0.5, 1), transform 200ms cubic-bezier(0.25, 1, 0.5, 1)",
@@ -58,7 +59,7 @@ function BrandCard({ brand }: { brand: (typeof brands)[number] }) {
         />
       </div>
       <span className="text-xs text-muted-foreground mt-2 text-center leading-tight line-clamp-1">{brand.name}</span>
-    </div>
+    </Link>
   )
 }
 
@@ -67,6 +68,19 @@ export function BrandsSection() {
 
   return (
     <section className="py-12 md:py-16" style={{ backgroundColor: "#f7e7d4" }}>
+      <style>{`
+        @keyframes brands-scroll {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .brands-track {
+          animation: brands-scroll 40s linear infinite;
+        }
+        .brands-track:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+
       <div className="container mx-auto px-4 mb-10 text-center">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Shop By Brand</h2>
         <p className="text-muted-foreground">We stock all the leading pet brands</p>
@@ -83,20 +97,15 @@ export function BrandsSection() {
         </ul>
       </nav>
 
-      {/* Dual marquee rows — hidden from assistive tech */}
       <div
         aria-hidden="true"
-        className="flex flex-col gap-4 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
+        className="overflow-hidden"
+        style={{
+          maskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)",
+          WebkitMaskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)",
+        }}
       >
-        {/* Row 1: left */}
-        <div className="flex w-max gap-6 animate-marquee hover:[animation-play-state:paused]">
-          {doubled.map((brand, i) => (
-            <BrandCard key={i} brand={brand} />
-          ))}
-        </div>
-
-        {/* Row 2: right, offset speed for depth */}
-        <div className="flex w-max gap-6 animate-marquee-reverse hover:[animation-play-state:paused]">
+        <div className="brands-track flex gap-6 px-4" style={{ width: "max-content" }}>
           {doubled.map((brand, i) => (
             <BrandCard key={i} brand={brand} />
           ))}

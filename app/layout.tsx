@@ -1,14 +1,11 @@
 import type { Metadata } from 'next'
-import { Alice, Geist, Geist_Mono, Poppins, Roboto } from 'next/font/google'   
+import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { AuthProvider } from '@/contexts/auth-context'
 import './globals.css'
 
-const alice = Alice({ subsets: ["latin"], weight: "400", variable: "--font-sans" });
-const geist = Geist({ subsets: ["latin"], variable: "--font-heading" });
-const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-navbar" });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
-const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-roboto" }); 
+const geist = Geist({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-sans" });
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
   title: 'Vital Pet Group – UK Leading Pet Products Wholesaler & Distributor',
@@ -39,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`bg-background ${alice.variable} ${geist.variable} ${poppins.variable} ${roboto.variable}`}> 
+    <html lang="en" className={`bg-background ${geist.variable} ${geistMono.variable}`}>
       <body className="font-sans antialiased">
         <AuthProvider>
           {children}

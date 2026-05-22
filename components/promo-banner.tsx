@@ -1,24 +1,27 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { PawPrint } from "lucide-react"
 
 const banners = [
   {
-    subtitle: "Dog's Essentials",
-    heading: "EXPLORE DOG COLLECTION",
+    subtitle: "Dog's Fitting",
+    heading: "EXPLORE DOG\nCOLLECTION",
     href: "/dog",
-    label: "Browse Dogs",
-    image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&auto=format&fit=crop&q=80",
-    alt: "Golden retriever dog running outdoors",
+    label: "Shop Dog",
+    image: "https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?w=500&auto=format&fit=crop&q=80",
+    alt: "Beagle dog portrait",
+    cardBg: "#f8f6f2",
+    imageBg: "#e3d9c0",
   },
   {
-    subtitle: "Cats & Kittens",
-    heading: "EXPLORE CAT COLLECTION",
+    subtitle: "Dog & Paul",
+    heading: "EXPLORE CAT\nCOLLECTION",
     href: "/cat",
-    label: "Browse Cats",
-    image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&auto=format&fit=crop&q=80",
-    alt: "Cat with striking blue eyes",
+    label: "Shop Cat",
+    image: "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=500&auto=format&fit=crop&q=80",
+    alt: "Tabby cat portrait",
+    cardBg: "#f0efed",
+    imageBg: null,
   },
 ]
 
@@ -45,50 +48,63 @@ export function PromoBanner() {
           {banners.map((b) => (
             <div
               key={b.heading}
-              className="relative overflow-hidden rounded-2xl flex items-center min-h-[260px]"
+              className="rounded-2xl flex items-stretch overflow-hidden min-h-[240px]"
               style={{
-                backgroundColor: "#ffffff",
+                backgroundColor: b.cardBg,
                 border: "1.5px solid #b8b49a",
                 outline: "1px solid #d4cfbe",
                 outlineOffset: "-6px",
                 boxShadow: "0 2px 16px rgba(0,0,0,0.08)",
               }}
             >
-              <div className="relative z-10 p-8 flex-1 flex flex-col justify-center">
+              {/* Text column */}
+              <div className="flex flex-col justify-center p-8 flex-1">
                 <p className="text-sm mb-2" style={{ color: "#8a8a7a" }}>{b.subtitle}</p>
                 <h3
-                  className="text-3xl md:text-4xl font-bold mb-5 leading-tight"
+                  className="text-3xl md:text-4xl font-bold mb-5 leading-tight whitespace-pre-line"
                   style={{ color: "#6b7355" }}
                 >
                   {b.heading}
                 </h3>
-                <div className="mb-6">
-                  <Button
-                    asChild
-                    size="sm"
-                    style={{ backgroundColor: "#6b7355", color: "#fff", border: "none", borderRadius: "6px" }}
-                  >
-                    <Link href={b.href}>{b.label}</Link>
-                  </Button>
-                </div>
-                <div className="flex gap-3">
-                  <span className="flex items-center justify-center w-10 h-10 rounded-full bg-white" style={{ border: "1.5px solid #c0bba8" }}>
-                    <PawPrint className="w-5 h-5" style={{ color: "#6b7355" }} aria-hidden="true" />
-                  </span>
-                  <span className="flex items-center justify-center w-10 h-10 rounded-full bg-white" style={{ border: "1.5px solid #c0bba8" }}>
-                    <PawPrint className="w-5 h-5" style={{ color: "#8a9a6a" }} aria-hidden="true" />
-                  </span>
-                </div>
+                <Button
+                  asChild
+                  size="sm"
+                  style={{ backgroundColor: "#6b7355", color: "#fff", border: "none", borderRadius: "6px", alignSelf: "flex-start" }}
+                >
+                  <Link href={b.href}>{b.label}</Link>
+                </Button>
               </div>
 
-              <div className="absolute right-0 top-0 h-full w-1/2 pointer-events-none">
-                <Image
-                  src={b.image}
-                  alt={b.alt}
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 768px) 50vw, 300px"
-                />
+              {/* Image column */}
+              <div className="relative flex items-center justify-center" style={{ width: "42%" }}>
+                {b.imageBg ? (
+                  <div
+                    className="relative rounded-xl overflow-hidden"
+                    style={{
+                      width: "85%",
+                      aspectRatio: "1 / 1",
+                      backgroundColor: b.imageBg,
+                    }}
+                  >
+                    <Image
+                      src={b.image}
+                      alt={b.alt}
+                      fill
+                      className="object-cover object-top"
+                      sizes="200px"
+                    />
+                  </div>
+                ) : (
+                  <div className="absolute inset-0">
+                    <Image
+                      src={b.image}
+                      alt={b.alt}
+                      fill
+                      className="object-cover object-center"
+                      sizes="200px"
+                    />
+                  </div>
+                )}
               </div>
             </div>
           ))}
