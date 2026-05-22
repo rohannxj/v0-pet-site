@@ -1,10 +1,11 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Heart, ShoppingCart, Lock } from "lucide-react"
+import { Heart, ShoppingCart, Lock, ImageOff } from "lucide-react"
 import { useAuth } from "@/contexts/auth-context"
 import { Product } from "@/lib/products"
 
@@ -12,32 +13,59 @@ interface ProductCardProps {
   product: Product
 }
 
+const isTemplateImage = (src: string) =>
+  src.includes("unsplash.com") || src.includes("loremflickr.com")
+
 export function ProductCard({ product }: ProductCardProps) {
   const { isAuthenticated } = useAuth()
+  const hasRealImage = !isTemplateImage(product.image)
 
   return (
     <Card className="group overflow-hidden border-0 shadow-sm hover:shadow-md transition-shadow">
       <div className="relative aspect-square overflow-hidden bg-white">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"
-        />
+        {hasRealImage ? (
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            className="object-contain p-2 transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
+            loading="lazy"
+          />
+        ) : (
+          <div
+            className="absolute inset-0 flex flex-col items-center justify-center gap-2"
+            style={{ background: "oklch(0.95 0.008 185)" }}
+            aria-label="Image unavailable"
+          >
+            <ImageOff
+              className="h-8 w-8"
+              style={{ color: "oklch(0.55 0.03 185)" }}
+              aria-hidden="true"
+            />
+            <span
+              className="text-xs font-medium tracking-wide"
+              style={{ color: "oklch(0.55 0.03 185)" }}
+            >
+              Image unavailable
+            </span>
+          </div>
+        )}
         {product.badge && (
           <Badge
             className={`absolute top-2 left-2 ${
               product.badge === "Sale"
-                ? "bg-red-500"
+                ? "bg-destructive"
                 : product.badge === "New"
-                  ? "bg-green-500"
-                  : "bg-[#1a5d5d]"
+                  ? "bg-[oklch(0.50_0.15_145)]"
+                  : "bg-primary"
             }`}
           >
             {product.badge}
           </Badge>
         )}
         <button
-          className="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-muted"
+          className="absolute top-2 right-2 w-11 h-11 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 focus:opacity-100 focus-visible:opacity-100 transition-opacity hover:bg-muted focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
           aria-label="Add to wishlist"
         >
           <Heart className="h-4 w-4" />
@@ -46,7 +74,7 @@ export function ProductCard({ product }: ProductCardProps) {
       <CardContent className="p-4">
         <p className="text-xs text-muted-foreground mb-1">{product.brand}</p>
         <Link href={`/product/${product.id}`}>
-          <h3 className="font-medium text-sm md:text-base line-clamp-2 hover:text-[#1a5d5d] transition-colors">
+          <h3 className="font-medium text-sm md:text-base line-clamp-2 hover:text-primary transition-colors">
             {product.name}
           </h3>
         </Link>
@@ -54,7 +82,7 @@ export function ProductCard({ product }: ProductCardProps) {
           {isAuthenticated ? (
             <>
               <div className="flex items-center gap-2">
-                <span className="font-bold text-[#1a5d5d]">£{product.price.toFixed(2)}</span>
+                <span className="font-bold text-primary">£{product.price.toFixed(2)}</span>
                 {product.originalPrice && (
                   <span className="text-sm text-muted-foreground line-through">
                     £{product.originalPrice.toFixed(2)}
@@ -64,7 +92,8 @@ export function ProductCard({ product }: ProductCardProps) {
               <Button
                 size="icon"
                 variant="outline"
-                className="h-8 w-8 hover:bg-[#1a5d5d] hover:text-white hover:border-[#1a5d5d]"
+                className="h-11 w-11 hover:bg-primary hover:text-primary-foreground hover:border-primary"
+                aria-label={`Add ${product.name} to cart`}
               >
                 <ShoppingCart className="h-4 w-4" />
               </Button>
@@ -72,7 +101,7 @@ export function ProductCard({ product }: ProductCardProps) {
           ) : (
             <Link
               href="/login"
-              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-[#1a5d5d] transition-colors"
+              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               <Lock className="h-3 w-3" />
               <span>Login for pricing</span>

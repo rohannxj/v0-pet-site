@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 
 const categories = [
@@ -17,15 +19,22 @@ export function PopularCategories() {
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Popular Categories</h2>
           <p className="text-muted-foreground">Browse our most popular product categories</p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {categories.map((category) => (
             <Link
               key={category.name}
               href={category.href}
-              className="group flex items-center justify-center px-4 py-5 rounded-lg transition-colors"
-              style={{ backgroundColor: "#f5f0e8", border: "1.5px solid #b8b49a", outline: "1px solid #d4cfbe", outlineOffset: "-6px" }}
+              className="group flex items-center justify-center px-4 py-5 rounded-lg transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6b7355]"
+              style={{
+                backgroundColor: "#f5f0e8",
+                border: "1.5px solid #b8b49a",
+                outline: "1px solid #d4cfbe",
+                outlineOffset: "-6px",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#ebe4d5" }}
+              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "#f5f0e8" }}
             >
-              <h3 className="font-semibold text-center text-foreground">{category.name}</h3>
+              <h3 className="font-semibold text-center text-foreground text-sm">{category.name}</h3>
             </Link>
           ))}
         </div>

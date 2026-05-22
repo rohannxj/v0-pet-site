@@ -15,13 +15,12 @@ export function WholesalerBanner() {
             Explore our extensive range of products that support the health and happiness of pets across the UK.
           </p>
 
-          {/* Button row with flanking grain images */}
           <div className="relative flex items-center justify-center" style={{ overflow: "visible" }}>
             <img
               src="/grains-left-side.png"
               alt=""
-              aria-hidden
-              className="pointer-events-none select-none absolute"
+              aria-hidden="true"
+              className="pointer-events-none select-none absolute hidden md:block"
               style={{
                 width: 320,
                 right: "calc(50% + 140px)",
@@ -40,8 +39,8 @@ export function WholesalerBanner() {
             <img
               src="/grains-right-side.png"
               alt=""
-              aria-hidden
-              className="pointer-events-none select-none absolute"
+              aria-hidden="true"
+              className="pointer-events-none select-none absolute hidden md:block"
               style={{
                 width: 280,
                 left: "calc(50% + 140px)",

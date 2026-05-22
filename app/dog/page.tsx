@@ -1,5 +1,3 @@
-"use client"
-
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
@@ -19,12 +17,12 @@ const subcategories = [
 ]
 
 const brands = [
-  { name: "Royal Canin", logo: "RC" },
-  { name: "Pedigree", logo: "PD" },
-  { name: "Harringtons", logo: "HR" },
-  { name: "James Wellbeloved", logo: "JW" },
-  { name: "Lily's Kitchen", logo: "LK" },
-  { name: "Burns", logo: "BN" },
+  { name: "Royal Canin" },
+  { name: "Pedigree" },
+  { name: "Harringtons" },
+  { name: "James Wellbeloved" },
+  { name: "Lily's Kitchen" },
+  { name: "Burns" },
 ]
 
 export default function DogPage() {
@@ -39,8 +37,9 @@ export default function DogPage() {
         <div className="relative h-80 md:h-96 overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1600&auto=format&fit=crop&q=80"
-            alt="Happy dog"
+            alt="Golden retriever running in a field"
             className="w-full h-full object-cover"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30" />
           <div className="absolute inset-0 flex items-center">
@@ -56,7 +55,7 @@ export default function DogPage() {
               </p>
               <div className="flex gap-4 mb-6">
                 <Link href="/shop/dog">
-                  <Button size="lg" className="bg-white text-[#1a5d5d] hover:bg-white/90">
+                  <Button size="lg" className="bg-white text-primary hover:bg-white/90">
                     Shop All Dog Products
                   </Button>
                 </Link>
@@ -66,7 +65,7 @@ export default function DogPage() {
                   <Link
                     key={cat.name}
                     href={cat.href}
-                    className="px-4 py-2 rounded-lg bg-white/20 hover:bg-white/30 text-white text-sm font-medium transition-colors"
+                    className="px-4 py-2 min-h-[44px] flex items-center rounded-lg bg-white/20 hover:bg-white/30 text-white text-sm font-medium transition-colors"
                   >
                     {cat.name} <span className="text-white/70 text-xs ml-1">{cat.count}</span>
                   </Link>
@@ -80,8 +79,8 @@ export default function DogPage() {
         <section className="py-12">
           <div className="container mx-auto px-4">
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-bold">Featured Dog Products</h2>
-              <Link href="/shop/dog" className="text-[#1a5d5d] hover:underline font-medium flex items-center gap-1">
+              <h2 className="text-2xl font-bold">Top Sellers</h2>
+              <Link href="/shop/dog" className="text-primary hover:underline font-medium flex items-center gap-1">
                 View All <ChevronRight className="h-4 w-4" />
               </Link>
             </div>
@@ -94,20 +93,21 @@ export default function DogPage() {
         </section>
 
         {/* Promo Banners */}
-        <section className="py-8">
+        <section className="py-8" aria-label="Promotional offers">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-6">
               <div className="relative h-48 rounded-xl overflow-hidden group">
                 <img
                   src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=800&auto=format&fit=crop&q=80"
-                  alt="Puppy food"
+                  alt="Young puppy sitting next to a food bowl"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#1a5d5d]/90 to-transparent flex items-center p-6">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-transparent flex items-center p-6">
                   <div>
                     <h3 className="text-2xl font-bold text-white mb-2">Puppy Essentials</h3>
                     <p className="text-white/80 mb-4">Everything for your new arrival</p>
-                    <Button size="sm" className="bg-white text-[#1a5d5d] hover:bg-white/90">
+                    <Button size="sm" className="bg-white text-primary hover:bg-white/90">
                       Shop Puppy
                     </Button>
                   </div>
@@ -116,14 +116,15 @@ export default function DogPage() {
               <div className="relative h-48 rounded-xl overflow-hidden group">
                 <img
                   src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&auto=format&fit=crop&q=80"
-                  alt="Dog treats"
+                  alt="Two dogs running together outdoors"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-600/90 to-transparent flex items-center p-6">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-transparent flex items-center p-6">
                   <div>
                     <h3 className="text-2xl font-bold text-white mb-2">Training Treats</h3>
-                    <p className="text-white/80 mb-4">Reward good behavior</p>
-                    <Button size="sm" className="bg-white text-amber-600 hover:bg-white/90">
+                    <p className="text-white/80 mb-4">Reward good behaviour</p>
+                    <Button size="sm" className="bg-white text-primary hover:bg-white/90">
                       Shop Treats
                     </Button>
                   </div>
@@ -141,11 +142,10 @@ export default function DogPage() {
               {brands.map((brand) => (
                 <Link key={brand.name} href={`/brands/${brand.name.toLowerCase().replace(/\s+/g, "-")}`}>
                   <Card className="hover:shadow-md transition-shadow cursor-pointer">
-                    <CardContent className="p-6 flex flex-col items-center justify-center aspect-square">
-                      <div className="w-16 h-16 rounded-full bg-[#1a5d5d]/10 flex items-center justify-center mb-3">
-                        <span className="text-xl font-bold text-[#1a5d5d]">{brand.logo}</span>
-                      </div>
-                      <span className="text-sm font-medium text-center">{brand.name}</span>
+                    <CardContent className="p-4 flex items-center justify-center aspect-square">
+                      <span className="text-sm font-semibold text-center leading-tight text-foreground">
+                        {brand.name}
+                      </span>
                     </CardContent>
                   </Card>
                 </Link>
@@ -159,7 +159,7 @@ export default function DogPage() {
           <div className="container mx-auto px-4">
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-2xl font-bold">All Dog Products</h2>
-              <Link href="/shop/dog" className="text-[#1a5d5d] hover:underline font-medium flex items-center gap-1">
+              <Link href="/shop/dog" className="text-primary hover:underline font-medium flex items-center gap-1">
                 View All <ChevronRight className="h-4 w-4" />
               </Link>
             </div>
@@ -170,7 +170,7 @@ export default function DogPage() {
             </div>
             <div className="text-center mt-8">
               <Link href="/shop/dog">
-                <Button size="lg" className="bg-[#1a5d5d] hover:bg-[#154a4a]">
+                <Button size="lg">
                   Browse All Dog Products
                 </Button>
               </Link>

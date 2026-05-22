@@ -1,0 +1,159 @@
+<!DOCTYPE html><html lang="en"><head><link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Vital Pet Group Footer</title>
+<!-- Tailwind CSS v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'b2b-forest': '#011e14', /* Even darker deep forest */
+            'b2b-midnight': '#01160f', /* Midnight green */
+            'b2b-accent': '#10b981',
+            'b2b-slate-green': '#d1fae5',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for specific fine-tuning -->
+<style data-purpose="custom-gradients">
+    .newsletter-gradient {
+      /* Shifted to deep forest/midnight tones */
+      background: linear-gradient(90deg, #012a1c 0%, #011e14 100%);
+    }
+    .footer-main-bg {
+      background-color: #01160f; /* Midnight green */
+    }
+    .footer-bottom-bar {
+      background-color: #000c08; /* Near black accent */
+    }
+  </style>
+<style data-purpose="typography">
+    body {
+      font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+    }
+    h1, h2, h3, h4, .font-bold, .font-semibold {
+      font-family: 'Libre Baskerville', serif;
+    }
+    .footer-link {
+      transition: color 0.2s ease;
+    }
+    .footer-link:hover {
+      color: #10b981;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+<!-- BEGIN: FooterContainer -->
+<footer class="w-full text-white">
+<!-- BEGIN: NewsletterSection -->
+<section class="newsletter-gradient py-10 px-6 md:px-12 lg:px-24" data-purpose="newsletter-bar">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="text-left w-full md:w-auto">
+<h2 class="text-2xl font-bold mb-2">Subscribe to Our Newsletter</h2>
+<p class="text-emerald-100/70 text-sm">Product updates, new arrivals and trade news.</p>
+</div>
+<div class="flex w-full md:w-auto max-w-md gap-0">
+<input aria-label="Email Address" class="w-full bg-black/30 border border-emerald-900 text-white placeholder-emerald-700 rounded-l-md px-4 py-2.5 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 outline-none" placeholder="Enter your email" type="email">
+<button class="bg-white text-emerald-950 font-semibold px-8 py-2.5 rounded-r-md hover:bg-emerald-50 transition-colors">
+            Subscribe
+          </button>
+</div>
+</div>
+</section>
+<!-- END: NewsletterSection -->
+<!-- BEGIN: MainFooterContent -->
+<section class="footer-main-bg py-16 px-6 md:px-12 lg:px-24 border-t border-emerald-950" data-purpose="navigation-grid">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+<!-- Column 1: Company Info -->
+<div class="lg:col-span-1" data-purpose="company-profile">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-950 font-bold text-lg">
+              VP
+            </div>
+<span class="text-xl font-bold tracking-tight">Vital Pet Group</span>
+</div>
+<p class="text-emerald-100/50 text-sm leading-relaxed mb-6">
+            UK's leading pet products wholesaler and distributor, supplying quality products to retailers nationwide.
+          </p>
+<ul class="space-y-3 text-sm text-emerald-100/60">
+<li class="flex items-center gap-3">
+<svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg>
+              01902 924266
+            </li>
+<li class="flex items-center gap-3">
+<svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
+              info@vitalpetgroup.co.uk
+            </li>
+<li class="flex items-center gap-3">
+<svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg>
+              Wolverhampton, UK
+            </li>
+</ul>
+</div>
+<!-- Column 2: Shop -->
+<div data-purpose="footer-column-shop">
+<h3 class="text-lg font-semibold mb-6">Shop</h3>
+<ul class="space-y-3 text-sm text-emerald-100/50">
+<li class=""><a class="footer-link" href="#">Dog Products</a></li>
+<li class=""><a class="footer-link" href="#">Cat Products</a></li>
+<li class=""><a class="footer-link" href="#">Small Animals</a></li>
+<li class=""><a class="footer-link" href="#">Bird Products</a></li>
+<li class=""><a class="footer-link" href="#">Fish &amp; Reptile</a></li>
+<li class=""><a class="footer-link" href="#">Equine</a></li>
+</ul>
+</div>
+<!-- Column 3: Information -->
+<div data-purpose="footer-column-info">
+<h3 class="text-lg font-semibold mb-6">Information</h3>
+<ul class="space-y-3 text-sm text-emerald-100/50">
+<li class=""><a class="footer-link" href="#">About Us</a></li>
+<li class=""><a class="footer-link" href="#">Contact Us</a></li>
+<li class=""><a class="footer-link" href="#">Delivery Information</a></li>
+<li class=""><a class="footer-link" href="#">Returns Policy</a></li>
+<li class=""><a class="footer-link" href="#">Trade Accounts</a></li>
+<li class=""><a class="footer-link" href="#">Careers</a></li>
+</ul>
+</div>
+<!-- Column 4: Support -->
+<div data-purpose="footer-column-support">
+<h3 class="text-lg font-semibold mb-6">Support</h3>
+<ul class="space-y-3 text-sm text-emerald-100/50">
+<li class=""><a class="footer-link" href="#">FAQs</a></li>
+<li class=""><a class="footer-link" href="#">Terms &amp; Conditions</a></li>
+<li class=""><a class="footer-link" href="#">Privacy Policy</a></li>
+<li class=""><a class="footer-link" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+<!-- Column 5: Social & Payment -->
+
+</div>
+</section>
+<!-- END: MainFooterContent -->
+<!-- BEGIN: CopyrightBar -->
+<section class="footer-bottom-bar py-6 px-6 md:px-12 lg:px-24 border-t border-emerald-950" data-purpose="legal-bar">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-emerald-100/30">
+<div class="flex items-center gap-4 w-full md:w-auto">
+<div class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-emerald-100/50 border border-emerald-950">
+            N
+          </div>
+<span class="">© 2026 Vital Pet Group. All rights reserved.</span>
+</div>
+<div class="flex gap-6">
+<a class="hover:text-emerald-500" href="#">Terms</a>
+<a class="hover:text-emerald-500" href="#">Privacy</a>
+<a class="hover:text-emerald-500" href="#">Cookies</a>
+</div>
+</div>
+</section>
+<!-- END: CopyrightBar -->
+</footer>
+<!-- END: FooterContainer -->
+
+
+
+
+</body></html>

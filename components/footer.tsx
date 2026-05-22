@@ -21,7 +21,6 @@ const footerLinks = {
   ],
   support: [
     { name: "FAQs", href: "/help" },
-    { name: "Track Order", href: "/track-order" },
     { name: "Terms & Conditions", href: "/terms" },
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Cookie Policy", href: "/cookies" },
@@ -37,14 +36,14 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#1a3a3a] text-white">
+    <footer className="bg-[oklch(0.22_0.06_170)] text-white">
       {/* Newsletter Section */}
-      <div className="bg-[#1a5d5d] py-8">
+      <div className="bg-primary py-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
               <h3 className="text-xl font-bold mb-1">Subscribe to Our Newsletter</h3>
-              <p className="text-white/80 text-sm">Get the latest deals, new products and exclusive offers</p>
+              <p className="text-white/80 text-sm">Product updates, new arrivals and trade news.</p>
             </div>
             <NewsletterForm />
           </div>
@@ -58,7 +57,7 @@ export function Footer() {
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <span className="text-[#1a5d5d] font-bold">VP</span>
+                <span className="text-primary font-bold">VP</span>
               </div>
               <span className="font-bold text-lg">Vital Pet Group</span>
             </div>
@@ -66,11 +65,11 @@ export function Footer() {
               UK&apos;s leading pet products wholesaler and distributor, supplying quality products to retailers nationwide.
             </p>
             <div className="space-y-2 text-sm">
-              <a href="tel:+441onal123456" className="flex items-center gap-2 text-white/70 hover:text-white">
+              <a href="tel:+441902924266" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors duration-200">
                 <Phone className="h-4 w-4" />
                 01902 924266
               </a>
-              <a href="mailto:info@vitalpetgroup.co.uk" className="flex items-center gap-2 text-white/70 hover:text-white">
+              <a href="mailto:info@vitalpetgroup.co.uk" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors duration-200">
                 <Mail className="h-4 w-4" />
                 info@vitalpetgroup.co.uk
               </a>
@@ -87,7 +86,7 @@ export function Footer() {
             <ul className="space-y-2">
               {footerLinks.shop.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-white/70 hover:text-white transition-colors">
+                  <Link href={link.href} className="text-sm text-white/70 hover:text-white transition-colors duration-200">
                     {link.name}
                   </Link>
                 </li>
@@ -101,7 +100,7 @@ export function Footer() {
             <ul className="space-y-2">
               {footerLinks.information.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-white/70 hover:text-white transition-colors">
+                  <Link href={link.href} className="text-sm text-white/70 hover:text-white transition-colors duration-200">
                     {link.name}
                   </Link>
                 </li>
@@ -115,7 +114,7 @@ export function Footer() {
             <ul className="space-y-2">
               {footerLinks.support.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-white/70 hover:text-white transition-colors">
+                  <Link href={link.href} className="text-sm text-white/70 hover:text-white transition-colors duration-200">
                     {link.name}
                   </Link>
                 </li>
@@ -131,7 +130,7 @@ export function Footer() {
                 <a
                   key={social.name}
                   href={social.href}
-                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors duration-200"
                   aria-label={social.name}
                 >
                   <social.icon className="h-5 w-5" />
@@ -141,7 +140,7 @@ export function Footer() {
             <div className="mt-6">
               <h4 className="font-semibold mb-3">Payment Methods</h4>
               <div className="flex flex-wrap gap-2">
-                {["Visa", "MC", "Amex", "PayPal"].map((method) => (
+                {["Visa", "Mastercard", "Amex", "PayPal"].map((method) => (
                   <div
                     key={method}
                     className="bg-white/10 px-3 py-1 rounded text-xs font-medium"
@@ -161,9 +160,9 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-2 text-sm text-white/60">
             <p>&copy; {new Date().getFullYear()} Vital Pet Group. All rights reserved.</p>
             <div className="flex gap-4">
-              <Link href="/terms" className="hover:text-white">Terms</Link>
-              <Link href="/privacy" className="hover:text-white">Privacy</Link>
-              <Link href="/cookies" className="hover:text-white">Cookies</Link>
+              <Link href="/terms" className="hover:text-white transition-colors duration-200">Terms</Link>
+              <Link href="/privacy" className="hover:text-white transition-colors duration-200">Privacy</Link>
+              <Link href="/cookies" className="hover:text-white transition-colors duration-200">Cookies</Link>
             </div>
           </div>
         </div>

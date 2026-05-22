@@ -63,21 +63,54 @@ export default function WishlistPage() {
     return (
       <div className="min-h-screen flex flex-col bg-background">
         <Header />
-        <main className="flex-1 flex items-center justify-center">
-          <Card className="max-w-md w-full mx-4">
-            <CardContent className="pt-6 text-center">
-              <Lock className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-              <h2 className="text-xl font-semibold mb-2">Login Required</h2>
-              <p className="text-muted-foreground mb-4">
-                Please log in to view your wishlist.
-              </p>
-              <Link href="/login?redirect=/wishlist">
-                <Button className="bg-[#1a5d5d] hover:bg-[#154a4a]">
-                  Log In
-                </Button>
+        <main className="flex-1 flex items-center justify-center px-4">
+          <div className="w-full max-w-sm text-center">
+            <Lock
+              className="mx-auto mb-6"
+              style={{ width: 40, height: 40, color: "oklch(0.55 0.15 170)" }}
+              strokeWidth={1.5}
+            />
+            <h2
+              className="text-2xl font-bold tracking-tight mb-3"
+              style={{ color: "oklch(0.25 0.01 240)" }}
+            >
+              Login required
+            </h2>
+            <p
+              className="text-base mb-8"
+              style={{ color: "oklch(0.50 0 0)", maxWidth: "36ch", margin: "0 auto 2rem" }}
+            >
+              Your saved items are here when you log in.
+            </p>
+            <Link href="/login?redirect=/wishlist" className="block">
+              <Button
+                className="w-full font-medium"
+                style={{
+                  backgroundColor: "oklch(0.55 0.15 170)",
+                  color: "oklch(1 0 0)",
+                  transition: "background-color 200ms cubic-bezier(0.25,1,0.5,1)",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.backgroundColor = "oklch(0.25 0.10 170)"
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.backgroundColor = "oklch(0.55 0.15 170)"
+                }}
+              >
+                Log in
+              </Button>
+            </Link>
+            <p className="mt-4 text-sm" style={{ color: "oklch(0.50 0 0)" }}>
+              New to Pet Vital?{" "}
+              <Link
+                href="/register"
+                className="font-medium underline-offset-2 hover:underline"
+                style={{ color: "oklch(0.55 0.15 170)" }}
+              >
+                Create an account
               </Link>
-            </CardContent>
-          </Card>
+            </p>
+          </div>
         </main>
         <Footer />
       </div>

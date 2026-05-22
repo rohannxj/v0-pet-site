@@ -180,20 +180,90 @@ export default function ClearancePage() {
           )}
 
           {/* Bottom CTA */}
-          <div className="mt-12 bg-muted rounded-lg p-8 text-center">
-            <h2 className="text-2xl font-bold mb-2">Want More Great Deals?</h2>
-            <p className="text-muted-foreground mb-4">
-              Sign up for our newsletter to be the first to know about clearance sales and special offers.
+          <section
+            aria-label="Newsletter sign-up and trade account"
+            className="mt-12 rounded-lg p-10 text-center"
+            style={{ background: "oklch(0.25 0.10 170)" }}
+          >
+            <h2
+              className="text-2xl font-bold mb-3"
+              style={{ color: "oklch(0.97 0.01 170)" }}
+            >
+              Want More Great Deals?
+            </h2>
+            <p className="mb-6 max-w-sm mx-auto" style={{ color: "oklch(0.78 0.05 170)" }}>
+              Be first to know about clearance sales and special offers.
             </p>
-            <div className="flex justify-center gap-4">
+            <div className="flex justify-center gap-4 flex-wrap">
               <Link href="/shop">
-                <Button variant="outline">Browse Full Catalogue</Button>
+                <Button
+                  style={{
+                    color: "oklch(0.97 0.01 170)",
+                    borderColor: "oklch(0.70 0.06 170)",
+                    border: "1px solid oklch(0.70 0.06 170)",
+                    background: "transparent",
+                    transition: "background-color 150ms ease-out, border-color 150ms ease-out",
+                  }}
+                  onMouseEnter={e => {
+                    const el = e.currentTarget as HTMLButtonElement
+                    el.style.backgroundColor = "oklch(0.97 0.01 170 / 0.10)"
+                    el.style.borderColor = "oklch(0.85 0.04 170)"
+                  }}
+                  onMouseLeave={e => {
+                    const el = e.currentTarget as HTMLButtonElement
+                    el.style.backgroundColor = "transparent"
+                    el.style.borderColor = "oklch(0.70 0.06 170)"
+                  }}
+                  onFocus={e => {
+                    const el = e.currentTarget as HTMLButtonElement
+                    el.style.backgroundColor = "oklch(0.97 0.01 170 / 0.10)"
+                    el.style.outline = "2px solid oklch(0.70 0.08 170)"
+                    el.style.outlineOffset = "2px"
+                  }}
+                  onBlur={e => {
+                    const el = e.currentTarget as HTMLButtonElement
+                    el.style.backgroundColor = "transparent"
+                    el.style.outline = ""
+                    el.style.outlineOffset = ""
+                  }}
+                >
+                  Browse Full Catalogue
+                </Button>
               </Link>
               <Link href="/register">
-                <Button className="bg-[#1a5d5d] hover:bg-[#154a4a]">Create Trade Account</Button>
+                <Button
+                  className="font-semibold"
+                  style={{
+                    background: "oklch(0.55 0.15 170)",
+                    color: "oklch(0.99 0.005 170)",
+                    transition: "background-color 150ms ease-out",
+                  }}
+                  onMouseEnter={e => {
+                    const el = e.currentTarget as HTMLButtonElement
+                    el.style.backgroundColor = "oklch(0.62 0.15 170)"
+                  }}
+                  onMouseLeave={e => {
+                    const el = e.currentTarget as HTMLButtonElement
+                    el.style.backgroundColor = "oklch(0.55 0.15 170)"
+                  }}
+                  onFocus={e => {
+                    const el = e.currentTarget as HTMLButtonElement
+                    el.style.backgroundColor = "oklch(0.62 0.15 170)"
+                    el.style.outline = "2px solid oklch(0.70 0.08 170)"
+                    el.style.outlineOffset = "2px"
+                  }}
+                  onBlur={e => {
+                    const el = e.currentTarget as HTMLButtonElement
+                    el.style.backgroundColor = "oklch(0.55 0.15 170)"
+                    el.style.outline = ""
+                    el.style.outlineOffset = ""
+                  }}
+                >
+                  Create Trade Account
+                </Button>
               </Link>
             </div>
-          </div>
+          </section>
         </div>
       </main>
 
