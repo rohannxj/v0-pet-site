@@ -35,30 +35,39 @@ export function Testimonials() {
     <section className="py-16 md:py-20" style={{ backgroundColor: "#fdf6ee" }}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Testimonials</h2>
-          <div className="w-32 h-px bg-gray-300 mx-auto" />
+          <h2 className="text-2xl md:text-3xl font-bold mb-3" style={{ color: "#2d2d2d" }}>Testimonials</h2>
+          <div className="w-32 h-px mx-auto" style={{ backgroundColor: "#c8c0aa" }} />
         </div>
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-white rounded-xl p-8 border-2 border-green-700"
-              style={{ boxShadow: "6px 6px 0px #15803d" }}
+              className="bg-white rounded-xl p-8"
+              style={{
+                border: "1px solid #ddd8cc",
+                boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+              }}
             >
-              <span className="text-6xl leading-none font-serif text-[#d4b896] select-none">&ldquo;</span>
-              <p className="text-gray-700 mt-2 mb-5 leading-relaxed">{testimonial.content}</p>
+              <span className="text-6xl leading-none font-serif select-none" style={{ color: "#d4b896" }}>&ldquo;</span>
+              <p className="mt-2 mb-5 leading-relaxed" style={{ color: "#4a4a3a" }}>{testimonial.content}</p>
               <div className="flex gap-1 mb-5">
-                {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                ))}
+                <span aria-label={`${testimonial.rating} out of 5 stars`} className="flex gap-1">
+                  {Array.from({ length: testimonial.rating }).map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" aria-hidden="true" />
+                  ))}
+                </span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-semibold text-sm flex-shrink-0">
+                <div
+                  className="w-12 h-12 rounded-full flex items-center justify-center font-semibold text-sm flex-shrink-0"
+                  style={{ backgroundColor: "#5a7652", color: "#ffffff" }}
+                  aria-hidden="true"
+                >
                   {testimonial.initials}
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                  <p className="text-sm text-gray-500">{testimonial.role}</p>
+                  <p className="font-semibold" style={{ color: "#2d2d2d" }}>{testimonial.name}</p>
+                  <p className="text-sm" style={{ color: "#7a7a6e" }}>{testimonial.role}</p>
                 </div>
               </div>
             </div>

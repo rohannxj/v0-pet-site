@@ -244,7 +244,7 @@ export default function SpeciesPage({ params }: { params: Promise<{ species: str
                       placeholder="Search products..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-10 w-[200px] md:w-[300px]"
+                      className="pl-10 w-full sm:w-[200px] md:w-[300px]"
                     />
                   </div>
                 </div>
@@ -255,7 +255,7 @@ export default function SpeciesPage({ params }: { params: Promise<{ species: str
                   </span>
 
                   <Select value={sortBy} onValueChange={setSortBy}>
-                    <SelectTrigger className="w-[160px]">
+                    <SelectTrigger className="w-full sm:w-[160px]">
                       <SelectValue placeholder="Sort by" />
                     </SelectTrigger>
                     <SelectContent>

@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -30,15 +31,18 @@ export function TopPicks() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
           <div>
- <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-1" style={{ color: "#2c2c2c", fontFamily: "var(--font-roboto), sans-serif" }}>Top Picks For You</h2>        
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-1" style={{ color: "#2c2c2c" }}>
+              Top Picks For You
+            </h2>
             <p className="text-sm" style={{ color: "#7a7a6e" }}>Bestselling products loved by pet owners</p>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by species">
             {filters.map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className="px-4 py-1.5 text-sm font-medium rounded-md border transition-colors"
+                aria-pressed={activeFilter === filter}
+                className="px-4 py-2.5 min-h-[44px] text-sm font-medium rounded-md border transition-colors"
                 style={
                   activeFilter === filter
                     ? { backgroundColor: "#6b7355", color: "#ffffff", borderColor: "#6b7355" }
@@ -53,12 +57,23 @@ export function TopPicks() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
           {filteredProducts.map((product) => (
-            <Card key={product.id} className="group overflow-hidden transition-all duration-200 hover:shadow-2xl hover:border-green-600 hover:border-2 hover:-translate-y-2" style={{ backgroundColor: "#faf7f2", border: "1px solid #d4cfbe", borderRadius: "10px", boxShadow: "0 1px 4px rgba(0,0,0,0.07)" }}>
+            <Card
+              key={product.id}
+              className="group overflow-hidden transition-all duration-200 hover:shadow-2xl hover:-translate-y-2"
+              style={{
+                backgroundColor: "#faf7f2",
+                border: "2px solid #d4cfbe",
+                borderRadius: "10px",
+                boxShadow: "0 1px 4px rgba(0,0,0,0.07)",
+              }}
+            >
               <div className="relative aspect-square overflow-hidden" style={{ backgroundColor: "#f0ebe0" }}>
-                <img
+                <Image
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 />
                 {product.badge && (
                   <Badge
@@ -74,9 +89,9 @@ export function TopPicks() {
                   </Badge>
                 )}
                 <button
-                  className="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="absolute top-2 right-2 w-11 h-11 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 focus:opacity-100 focus-visible:opacity-100 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6b7355]"
                   style={{ border: "1px solid #d4cfbe" }}
-                  aria-label="Add to wishlist"
+                  aria-label={`Add ${product.name} to wishlist`}
                 >
                   <Heart className="h-4 w-4" style={{ color: "#7a7a6e" }} />
                 </button>
@@ -89,8 +104,10 @@ export function TopPicks() {
                   </h3>
                 </Link>
                 <div className="flex items-center gap-1 mt-2">
-                  <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                  <span className="text-xs font-medium" style={{ color: "#2c2c2c" }}>{product.rating}</span>
+                  <span aria-label={`${product.rating} out of 5 stars`} className="flex items-center gap-1">
+                    <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" aria-hidden="true" />
+                    <span className="text-xs font-medium" style={{ color: "#2c2c2c" }}>{product.rating}</span>
+                  </span>
                   <span className="text-xs" style={{ color: "#9a9a8a" }}>({product.reviews})</span>
                 </div>
                 <div className="flex items-center justify-between mt-3">
@@ -107,10 +124,11 @@ export function TopPicks() {
                       <Button
                         size="icon"
                         variant="outline"
-                        className="h-8 w-8"
+                        className="h-11 w-11"
                         style={{ borderColor: "#d4cfbe", color: "#5a5a4a" }}
+                        aria-label={`Add ${product.name} to cart`}
                       >
-                        <ShoppingCart className="h-4 w-4" />
+                        <ShoppingCart className="h-4 w-4" aria-hidden="true" />
                       </Button>
                     </>
                   ) : (
@@ -119,7 +137,7 @@ export function TopPicks() {
                       className="flex items-center gap-2 text-sm transition-colors"
                       style={{ color: "#9a9a8a" }}
                     >
-                      <Lock className="h-3 w-3" />
+                      <Lock className="h-3 w-3" aria-hidden="true" />
                       <span>Login for pricing</span>
                     </Link>
                   )}
@@ -130,7 +148,13 @@ export function TopPicks() {
         </div>
 
         <div className="text-center mt-8">
-          <Button asChild variant="outline" size="lg" className="rounded-md font-medium transition-colors" style={{ backgroundColor: "#ffffff", color: "#6b7280", borderColor: "#e5e7eb" }}>
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="rounded-md font-medium transition-colors"
+            style={{ backgroundColor: "#ffffff", color: "#6b7280", borderColor: "#e5e7eb" }}
+          >
             <Link href="/shop">View All Products</Link>
           </Button>
         </div>

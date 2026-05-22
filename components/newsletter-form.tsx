@@ -11,7 +11,8 @@ export function NewsletterForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!email) return
+    const trimmed = email.trim()
+    if (!trimmed || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) return
     setSubmitted(true)
   }
 
@@ -25,7 +26,7 @@ export function NewsletterForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2 w-full md:w-auto">
+    <form onSubmit={handleSubmit} className="flex gap-2 w-full md:w-auto" aria-label="Newsletter signup">
       <Input
         type="email"
         placeholder="Enter your email"
@@ -34,7 +35,7 @@ export function NewsletterForm() {
         className="bg-white/10 border-white/20 text-white placeholder:text-white/60 md:w-64"
         required
       />
-      <Button type="submit" className="bg-white text-[#1a5d5d] hover:bg-white/90 font-semibold">
+      <Button type="submit" className="bg-white text-primary hover:bg-white/90 font-semibold transition-colors duration-200">
         Subscribe
       </Button>
     </form>

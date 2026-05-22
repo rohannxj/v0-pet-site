@@ -29,33 +29,76 @@ const brands = [
   { name: "Drontal", logo: "/logos/Drontal.png", slug: "drontal" },
 ]
 
-export function BrandsSection() {
+function BrandCard({ brand }: { brand: (typeof brands)[number] }) {
   return (
-    <section className="py-12 md:py-16" style={{ backgroundColor: '#f7e7d4' }}>
+    <div
+      className="group flex flex-col items-center justify-center w-32 h-24 bg-white rounded-xl px-4 py-3 flex-shrink-0"
+      style={{
+        boxShadow: "0 1px 3px oklch(0.25 0.10 170 / 0.08), 0 1px 2px oklch(0.25 0.10 170 / 0.06)",
+        transition: "box-shadow 200ms cubic-bezier(0.25, 1, 0.5, 1), transform 200ms cubic-bezier(0.25, 1, 0.5, 1)",
+      }}
+      onMouseEnter={(e) => {
+        const el = e.currentTarget
+        el.style.boxShadow = "0 4px 12px oklch(0.25 0.10 170 / 0.12), 0 2px 4px oklch(0.25 0.10 170 / 0.08)"
+        el.style.transform = "translateY(-3px)"
+      }}
+      onMouseLeave={(e) => {
+        const el = e.currentTarget
+        el.style.boxShadow = "0 1px 3px oklch(0.25 0.10 170 / 0.08), 0 1px 2px oklch(0.25 0.10 170 / 0.06)"
+        el.style.transform = "translateY(0)"
+      }}
+    >
+      <div className="relative w-full h-12 flex items-center justify-center">
+        <Image
+          src={brand.logo}
+          alt={brand.name}
+          fill
+          className="object-contain transition-transform duration-500 [transition-timing-function:cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105"
+          sizes="128px"
+        />
+      </div>
+      <span className="text-xs text-muted-foreground mt-2 text-center leading-tight line-clamp-1">{brand.name}</span>
+    </div>
+  )
+}
+
+export function BrandsSection() {
+  const doubled = [...brands, ...brands]
+
+  return (
+    <section className="py-12 md:py-16" style={{ backgroundColor: "#f7e7d4" }}>
       <div className="container mx-auto px-4 mb-10 text-center">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Shop By Brand</h2>
         <p className="text-muted-foreground">We stock all the leading pet brands</p>
       </div>
 
-      <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-        <div className="flex w-max animate-marquee gap-6 hover:[animation-play-state:paused]">
-          {[...brands, ...brands].map((brand, i) => (
-            <Link
-              key={i}
-              href={`/brands/${brand.slug}`}
-              className="group flex flex-col items-center justify-center w-32 h-24 bg-white rounded-xl px-4 py-3 shadow-sm hover:shadow-md transition-shadow flex-shrink-0"
-            >
-              <div className="relative w-full h-12 flex items-center justify-center">
-                <Image
-                  src={brand.logo}
-                  alt={brand.name}
-                  fill
-                  className="object-contain group-hover:scale-105 transition-transform duration-200"
-                  sizes="128px"
-                />
-              </div>
-              <span className="text-xs text-muted-foreground mt-2 text-center leading-tight line-clamp-1">{brand.name}</span>
-            </Link>
+      {/* Screen-reader list */}
+      <nav aria-label="Brand links" className="sr-only">
+        <ul>
+          {brands.map((brand) => (
+            <li key={brand.slug}>
+              <Link href={`/brands/${brand.slug}`}>{brand.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* Dual marquee rows — hidden from assistive tech */}
+      <div
+        aria-hidden="true"
+        className="flex flex-col gap-4 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
+      >
+        {/* Row 1: left */}
+        <div className="flex w-max gap-6 animate-marquee hover:[animation-play-state:paused]">
+          {doubled.map((brand, i) => (
+            <BrandCard key={i} brand={brand} />
+          ))}
+        </div>
+
+        {/* Row 2: right, offset speed for depth */}
+        <div className="flex w-max gap-6 animate-marquee-reverse hover:[animation-play-state:paused]">
+          {doubled.map((brand, i) => (
+            <BrandCard key={i} brand={brand} />
           ))}
         </div>
       </div>

@@ -72,7 +72,7 @@ export default function FishPage() {
                   <Link
                     key={cat.name}
                     href={cat.href}
-                    className="px-4 py-2 rounded-lg bg-white/20 hover:bg-white/30 text-white text-sm font-medium transition-colors"
+                    className="px-4 py-2 min-h-[44px] flex items-center rounded-lg bg-white/20 hover:bg-white/30 text-white text-sm font-medium transition-colors"
                   >
                     {cat.name} <span className="text-white/70 text-xs ml-1">{cat.count}</span>
                   </Link>
@@ -89,7 +89,7 @@ export default function FishPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {fishTypes.map((fish) => (
                 <Link key={fish.name} href={`/shop/fish?type=${fish.name.toLowerCase()}`}>
-                  <Card className="hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer overflow-hidden group">
+                  <Card className="hover:shadow-lg transition-[transform,box-shadow] duration-200 hover:-translate-y-1 cursor-pointer overflow-hidden group">
                     <div className="aspect-square relative">
                       <img
                         src={fish.image}

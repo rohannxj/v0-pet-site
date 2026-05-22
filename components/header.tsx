@@ -295,12 +295,12 @@ export function Header() {
                 placeholder="Search products..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-4 pr-12 py-2 border border-[#C4B5A0] rounded-full bg-[#F5F3ED] placeholder:text-[#A5A199]"
+                className="w-full pl-4 pr-14 py-3 border border-[#C4B5A0] rounded-full bg-[#F5F3ED] placeholder:text-[#A5A199]"
               />
               <Button
                 type="submit"
                 size="icon"
-                className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-[#6B7F6E] hover:bg-[#4A5A4D] h-8 w-8"
+                className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-[#6B7F6E] hover:bg-[#4A5A4D] h-10 w-10"
               >
                 <Search className="h-4 w-4" />
               </Button>
