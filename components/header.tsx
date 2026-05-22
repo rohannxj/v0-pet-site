@@ -109,7 +109,7 @@ export function Header() {
   }
 
   return (
-    <header className="w-full" style={{ fontFamily: "var(--font-navbar), system-ui, sans-serif" }}>
+    <header className="w-full">
       {/* Top bar */}
       <div className="bg-[#3E4A3D] text-[#E8E4D9]">
         <div className="container mx-auto px-4 py-2 flex items-center justify-between text-sm">

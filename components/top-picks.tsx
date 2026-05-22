@@ -59,15 +59,17 @@ export function TopPicks() {
           {filteredProducts.map((product) => (
             <Card
               key={product.id}
-              className="group overflow-hidden transition-all duration-200 hover:shadow-2xl hover:-translate-y-2"
+              className="group overflow-hidden transition-all duration-200 hover:-translate-y-1.5"
               style={{
                 backgroundColor: "#faf7f2",
-                border: "2px solid #d4cfbe",
-                borderRadius: "10px",
-                boxShadow: "0 1px 4px rgba(0,0,0,0.07)",
+                border: "1px solid #d4cfbe",
+                borderRadius: "24px",
+                boxShadow: "0 2px 8px oklch(0.25 0.10 170 / 0.08)",
               }}
+              onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 8px 24px oklch(0.25 0.10 170 / 0.14)")}
+              onMouseLeave={e => (e.currentTarget.style.boxShadow = "0 2px 8px oklch(0.25 0.10 170 / 0.08)")}
             >
-              <div className="relative aspect-square overflow-hidden" style={{ backgroundColor: "#f0ebe0" }}>
+              <div className="relative aspect-square overflow-hidden" style={{ backgroundColor: "#f0ebe0", borderRadius: "24px 24px 0 0" }}>
                 <Image
                   src={product.image}
                   alt={product.name}
@@ -153,7 +155,7 @@ export function TopPicks() {
             variant="outline"
             size="lg"
             className="rounded-md font-medium transition-colors"
-            style={{ backgroundColor: "#ffffff", color: "#6b7280", borderColor: "#e5e7eb" }}
+            style={{ backgroundColor: "#ffffff", color: "#6b7355", borderColor: "#6b7355", borderWidth: "1.5px" }}
           >
             <Link href="/shop">View All Products</Link>
           </Button>

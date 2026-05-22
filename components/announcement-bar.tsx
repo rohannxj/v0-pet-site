@@ -26,6 +26,16 @@ const features = [
 export function AnnouncementBar() {
   return (
     <section className="bg-[#f3f0e7] py-6 border-t-[12px] border-[#4b6344]" aria-label="Service highlights">
+      <style>{`
+        @keyframes scroll-marquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-25%); }
+        }
+        .marquee-track {
+          animation: scroll-marquee 30s linear infinite;
+        }
+      `}</style>
+
       {/* Screen-reader-accessible static list */}
       <ul className="sr-only">
         {features.map((f) => (
@@ -34,8 +44,8 @@ export function AnnouncementBar() {
       </ul>
 
       {/* Visual marquee — hidden from assistive tech */}
-      <div aria-hidden="true" className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-        <div className="flex w-max animate-marquee-quad gap-16 hover:[animation-play-state:paused]">
+      <div aria-hidden="true" className="relative overflow-hidden" style={{ maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)" }}>
+        <div className="marquee-track flex gap-16" style={{ width: "max-content" }}>
           {[...features, ...features, ...features, ...features].map((feature, i) => (
             <div key={i} className="flex flex-row items-center gap-3.5 flex-shrink-0">
               <div className="flex-shrink-0 w-11 h-11 bg-[#5a7652] rounded-full flex items-center justify-center">
