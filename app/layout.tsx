@@ -8,7 +8,7 @@ const geist = Geist({ subsets: ["latin"], weight: ["400", "500", "600", "700"], 
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
-  title: 'Vital Pet Group – UK Leading Pet Products Wholesaler & Distributor',
+  title: 'Signature Pet Supplies – UK Leading Pet Products Wholesaler & Distributor',
   description: 'UK Leading Pet Products Wholesaler & Distributor - Shop dog, cat, small animal and bird products at wholesale prices.',
   generator: 'v0.app',
   icons: {

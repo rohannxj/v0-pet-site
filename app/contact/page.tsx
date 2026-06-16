@@ -31,7 +31,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Address",
-    details: ["Vital Pet Group", "123 Distribution Way", "Manchester, M1 2AB", "United Kingdom"],
+    details: ["Signature Pet Supplies", "123 Distribution Way", "Manchester, M1 2AB", "United Kingdom"],
   },
   {
     icon: Phone,

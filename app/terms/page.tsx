@@ -23,7 +23,7 @@ export default function TermsPage() {
           <div className="max-w-3xl mx-auto prose prose-sm">
             <h2>1. Introduction</h2>
             <p>
-              Welcome to Vital Pet Group. These terms and conditions outline the rules and regulations 
+              Welcome to Signature Pet Supplies. These terms and conditions outline the rules and regulations 
               for the use of our website and services. By accessing this website, we assume you accept 
               these terms and conditions in full.
             </p>
@@ -78,13 +78,13 @@ export default function TermsPage() {
             <h2>7. Intellectual Property</h2>
             <p>
               All content on this website, including text, graphics, logos, and images, is the property 
-              of Vital Pet Group or our licensors and is protected by copyright laws. You may not 
+              of Signature Pet Supplies or our licensors and is protected by copyright laws. You may not 
               reproduce, distribute, or use any content without our written permission.
             </p>
 
             <h2>8. Limitation of Liability</h2>
             <p>
-              To the fullest extent permitted by law, Vital Pet Group shall not be liable for any 
+              To the fullest extent permitted by law, Signature Pet Supplies shall not be liable for any 
               indirect, incidental, special, consequential, or punitive damages arising from your 
               use of our services or products.
             </p>

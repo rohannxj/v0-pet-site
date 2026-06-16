@@ -6,7 +6,7 @@ const testimonials = [
     name: "Sarah Johnson",
     role: "Pet Shop Owner, Manchester",
     content:
-      "Vital Pet Group has been our go-to supplier for over 5 years. Their range is unmatched and delivery is always on time.",
+      "Signature Pet Supplies has been our go-to supplier for over 5 years. Their range is unmatched and delivery is always on time.",
     rating: 5,
     initials: "SJ",
   },

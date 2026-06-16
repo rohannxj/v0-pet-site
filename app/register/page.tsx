@@ -131,7 +131,7 @@ export default function RegisterPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Why Choose Vital Pet Group?</CardTitle>
+                  <CardTitle className="text-lg">Why Choose Signature Pet Supplies?</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4 text-sm text-muted-foreground">
                   <p>

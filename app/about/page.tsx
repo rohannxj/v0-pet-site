@@ -105,7 +105,7 @@ export default function AboutPage() {
               <div>
                 <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
                 <p className="text-muted-foreground mb-4">
-                  At Vital Pet Group, our mission is to empower pet retailers with access to the best products at competitive prices, enabling them to serve pet owners with excellence.
+                  At Signature Pet Supplies, our mission is to empower pet retailers with access to the best products at competitive prices, enabling them to serve pet owners with excellence.
                 </p>
                 <p className="text-muted-foreground mb-6">
                   We believe every pet deserves quality nutrition, care, and accessories. By partnering with leading brands and maintaining rigorous quality standards, we ensure our trade customers can offer their clients nothing but the best.
@@ -194,7 +194,7 @@ export default function AboutPage() {
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold mb-4">Ready to Partner With Us?</h2>
             <p className="text-white/80 max-w-2xl mx-auto mb-8">
-              Join thousands of retailers who trust Vital Pet Group for their wholesale pet product needs. Open a trade account today and start saving.
+              Join thousands of retailers who trust Signature Pet Supplies for their wholesale pet product needs. Open a trade account today and start saving.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button asChild size="lg" variant="secondary">

@@ -147,7 +147,7 @@ export function Header() {
               <SheetContent side="left" className="w-[300px] p-0">
                 <div className="p-4 border-b">
                   <Link href="/" className="text-2xl font-bold text-[#4A5A4D]" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
-                    Vital Pet Group
+                    Signature Pet Supplies
                   </Link>
                 </div>
                 <nav className="p-4">
@@ -180,7 +180,7 @@ export function Header() {
                   <span className="text-white font-bold text-xl">VP</span>
                 </div>
                 <div className="hidden sm:block">
-                  <h1 className="text-xl font-bold text-[#3E4A3D] tracking-tight" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>Vital Pet Group</h1>
+                  <h1 className="text-xl font-bold text-[#3E4A3D] tracking-tight" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>Signature Pet Supplies</h1>
                   <p className="text-xs text-[#A5A199] tracking-widest uppercase">UK Pet Products Wholesaler</p>
                 </div>
               </div>

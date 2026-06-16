@@ -60,7 +60,7 @@ export function Footer() {
                 <div className="w-10 h-10 bg-emerald-50 rounded-full flex items-center justify-center">
                   <span className="text-emerald-950 font-bold">VP</span>
                 </div>
-                <span className="font-bold text-lg">Vital Pet Group</span>
+                <span className="font-bold text-lg">Signature Pet Supplies</span>
               </div>
               <p className="text-emerald-100/50 text-sm mb-4">
                 UK&apos;s leading pet products wholesaler and distributor, supplying quality products to retailers nationwide.
@@ -160,7 +160,7 @@ export function Footer() {
       <div style={{ backgroundColor: "#000c08" }} className="border-t border-emerald-950">
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-emerald-100/30">
-            <p>&copy; {new Date().getFullYear()} Vital Pet Group. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Signature Pet Supplies. All rights reserved.</p>
             <div className="flex gap-4">
               <Link href="/terms" className="hover:text-emerald-500 transition-colors duration-200">Terms</Link>
               <Link href="/privacy" className="hover:text-emerald-500 transition-colors duration-200">Privacy</Link>

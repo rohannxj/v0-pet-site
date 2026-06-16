@@ -113,7 +113,7 @@ export default function TradeAccountPage() {
                   Trade Accounts for Pet Professionals
                 </h1>
                 <p className="text-white/90 text-lg mb-6">
-                  Join thousands of pet retailers, groomers, and professionals who trust Vital Pet Group 
+                  Join thousands of pet retailers, groomers, and professionals who trust Signature Pet Supplies 
                   for their wholesale pet product needs. Access exclusive pricing and dedicated support.
                 </p>
                 <div className="flex flex-wrap gap-4">
@@ -160,7 +160,7 @@ export default function TradeAccountPage() {
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Why Choose Vital Pet Group?</h2>
+              <h2 className="text-3xl font-bold mb-4">Why Choose Signature Pet Supplies?</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 We are the UK&apos;s leading pet products wholesaler, providing everything you need to run a successful pet business.
               </p>

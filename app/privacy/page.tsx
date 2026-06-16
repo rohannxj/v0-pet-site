@@ -94,7 +94,7 @@ export default function PrivacyPage() {
 
               <Section id="introduction" number="1" heading="Introduction" first>
                 <p>
-                  Vital Pet Group (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy
+                  Signature Pet Supplies (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy
                   explains how we collect, use, disclose, and safeguard your information when you visit our
                   website and use our services.
                 </p>
