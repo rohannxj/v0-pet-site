@@ -12,21 +12,21 @@ const slides = [
 export function DealBanner() {
   const [current, setCurrent] = useState(0)
   const [paused, setPaused] = useState(false)
-  const [fading, setFading] = useState(false)
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const prefersReduced = useRef(
     typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
   )
 
   useEffect(() => {
     if (paused || prefersReduced.current) return
-    const interval = setInterval(() => {
-      setFading(true)
-      setTimeout(() => {
-        setCurrent((prev) => (prev + 1) % slides.length)
-        setFading(false)
-      }, 500)
+
+    intervalRef.current = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length)
     }, 4000)
-    return () => clearInterval(interval)
+
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current)
+    }
   }, [paused])
 
   return (
@@ -50,8 +50,8 @@ export function DealBanner() {
               aria-roledescription="slide"
               aria-label={`${i + 1} of ${slides.length}: ${slide.alt}`}
               aria-hidden={i !== current}
-              className="absolute inset-0 transition-opacity duration-500"
-              style={{ opacity: i === current ? (fading ? 0 : 1) : 0 }}
+              className="absolute inset-0 transition-opacity duration-700 ease-out"
+              style={{ opacity: i === current ? 1 : 0 }}
             >
               <Image
                 src={slide.src}
