@@ -118,9 +118,9 @@ export function Header() {
               <Phone className="h-4 w-4" />
               <span>01902 924266</span>
             </a>
-            <a href="mailto:info@vitalpetgroup.co.uk" className="flex items-center gap-2 hover:text-white/80 transition-colors">
+            <a href="mailto:info@signaturepetsupplies.co.uk" className="flex items-center gap-2 hover:text-white/80 transition-colors">
               <Mail className="h-4 w-4" />
-              <span>info@vitalpetgroup.co.uk</span>
+              <span>info@signaturepetsupplies.co.uk</span>
             </a>
           </div>
           <div className="flex items-center gap-4 mx-auto md:mx-0">

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react"
+import { Mail, Phone, MapPin } from "lucide-react"
 import { NewsletterForm } from "@/components/newsletter-form"
 
 const footerLinks = {
@@ -27,13 +27,6 @@ const footerLinks = {
   ],
 }
 
-const socialLinks = [
-  { name: "Facebook", icon: Facebook, href: "#" },
-  { name: "Twitter", icon: Twitter, href: "#" },
-  { name: "Instagram", icon: Instagram, href: "#" },
-  { name: "LinkedIn", icon: Linkedin, href: "#" },
-]
-
 export function Footer() {
   return (
     <footer className="w-full text-white">
@@ -53,7 +46,7 @@ export function Footer() {
       {/* Main Footer */}
       <div style={{ backgroundColor: "#01160f" }} className="border-t border-emerald-950">
         <div className="container mx-auto px-4 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {/* Company Info */}
             <div className="col-span-2 md:col-span-4 lg:col-span-1">
               <div className="flex items-center gap-2 mb-4">
@@ -123,35 +116,6 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Social Links */}
-            <div>
-              <h4 className="font-semibold mb-4 text-lg">Follow Us</h4>
-              <div className="flex gap-3">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    className="w-10 h-10 bg-emerald-950 border border-emerald-900 rounded-full flex items-center justify-center hover:bg-emerald-900 transition-colors duration-200"
-                    aria-label={social.name}
-                  >
-                    <social.icon className="h-5 w-5 text-emerald-400" />
-                  </a>
-                ))}
-              </div>
-              <div className="mt-6">
-                <h4 className="font-semibold mb-3">Payment Methods</h4>
-                <div className="flex flex-wrap gap-2">
-                  {["Visa", "Mastercard", "Amex", "PayPal"].map((method) => (
-                    <div
-                      key={method}
-                      className="bg-emerald-950 border border-emerald-900 px-3 py-1 rounded text-xs font-medium text-emerald-100/60"
-                    >
-                      {method}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
