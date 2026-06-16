@@ -5,19 +5,19 @@ const articles = [
   {
     id: 1,
     date: "December 15, 2025",
-    title: "SAMeThistle Pro vs. Denamarin: What's the Difference and Which Is Right for Your Dog?",
+    title: "Liver Support for Dogs: Why SAMeThistle Pro Is a Vet-Recommended Choice",
     slug: "samethistle-pro-vs-denamarin",
   },
   {
     id: 2,
     date: "December 10, 2025",
-    title: "SAMeThistle Pro Dosing by Weight: Simple Chart and Tips for Picky Eaters",
+    title: "Dosing Your Dog by Weight: A Practical Guide to Supplements and Medications",
     slug: "samethistle-pro-dosing-by-weight",
   },
   {
     id: 3,
     date: "October 31, 2025",
-    title: "How Lignans May Help Reduce the Risk of Breast Cancer",
+    title: "Seasonal Allergies in Pets: Natural Relief Strategies That Actually Work",
     slug: "lignans-breast-cancer-risk",
   },
 ]

@@ -22,7 +22,7 @@ const testimonials = [
   {
     id: 3,
     name: "Emma Thompson",
-    role: "Online Retailer, London",
+    role: "Independent Retailer, London",
     content:
       "The next-day delivery has transformed our business. Our customers love the quality and we love the margins!",
     rating: 5,
